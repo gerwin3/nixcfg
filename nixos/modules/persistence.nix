@@ -37,6 +37,7 @@
     users.gerwin = {
       directories = [
         ".cache/ncspot"
+        ".cargo/credentials.toml"
         ".config/1Password"
         ".config/github-copilot"
         ".local/share/keyrings"
