@@ -205,6 +205,10 @@
             background = background;
           };
       };
+
+    extraConfig = ''
+      focus_follows_mouse no
+    '';
   };
 
   home.packages = [
