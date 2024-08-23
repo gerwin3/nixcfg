@@ -1,0 +1,37 @@
+{ ... }:
+
+{
+  imports = [
+    modules/bash.nix
+    modules/bemenu.nix
+    modules/direnv.nix
+    modules/firefox.nix
+    modules/fonts.nix
+    modules/foot.nix
+    modules/fzf.nix
+    modules/gh-dash.nix
+    modules/git.nix
+    modules/gtk.nix
+    modules/ncspot.nix
+    modules/neovim
+    modules/nix.nix
+    modules/packages.nix
+    modules/sway.nix
+    modules/swaylock.nix
+    modules/waybar.nix
+  ];
+
+  home = {
+    username = "gerwin";
+    homeDirectory = "/home/gerwin";
+    stateVersion = "23.11"; # Never change this.
+  };
+
+  programs.home-manager.enable = true;
+
+  services.gnome-keyring.enable = true;
+
+  systemd.user.startServices = "sd-switch";
+
+  catppuccin.flavor = "mocha";
+}

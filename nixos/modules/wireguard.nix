@@ -1,0 +1,1 @@
+../../../nixcfg-priv/nixos/modules/wireguard.nix
