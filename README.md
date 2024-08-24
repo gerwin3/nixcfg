@@ -16,6 +16,10 @@ To update the system, use:
 
 This will do all of the above, as well as updating the lock file.
 
+## Known Issues
+
+* Flickering on Sway with NVIDIA: Sway's latest release is based on wlroots 0.17 which does not have explicit sync support. This will be fixed in the next Sway release which will be based on wlroots 0.19 (0.18 and above have explicit sync).
+
 ## Installation
 
 First, create a bootable medium from the [minimal NixOS installation image](https://nixos.org/download/), and boot from it on the target machine.
