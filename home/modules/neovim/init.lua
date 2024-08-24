@@ -76,12 +76,6 @@ vim.api.nvim_create_autocmd("FileType", {
   end
 })
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = "wiki",
-  callback = function()
-    vim.o.ignorecase = true
-  end
-})
-vim.api.nvim_create_autocmd("FileType", {
   pattern = "qf",
   callback = function()
     -- close quickfix window after selecting item
@@ -227,34 +221,7 @@ require("lazy").setup({
   -- fuzzy search everything
   'nvim-telescope/telescope-ui-select.nvim',
 
-  -- wiki
-  {
-    "vimwiki/vimwiki",
-    init = function()
-      vim.g.vimwiki_list = { {
-        path = "/home/gerwin/Documents/Wiki/",
-        path_html = "/home/gerwin/Documents/Wiki/www/",
-        template_path = "/home/gerwin/Documents/Wiki/tpl/",
-        template_default = "default",
-        template_ext = ".html",
-      } }
-      vim.g.vimwiki_global_ext = 0;
-    end,
-    config = function()
-      vim.api.nvim_create_autocmd("BufWriteCmd", {
-        pattern = "*.wiki",
-        callback = function() vim.cmd([[silent! VimwikiAll2HTML]]) end
-      })
-      vim.api.nvim_create_autocmd("BufWriteCmd", {
-        pattern = "*.wiki",
-        callback = function() vim.fn.jobstart("/home/gerwin/Documents/Wiki/up.sh") end
-      })
-    end
-  },
-
   -- language server
-  "williamboman/mason.nvim",
-  "williamboman/mason-lspconfig.nvim",
   {
     "VonHeikemen/lsp-zero.nvim",
     branch = "v3.x",
@@ -304,22 +271,6 @@ require("lazy").setup({
       })
       lsp_zero.configure("taplo", {})
       lsp_zero.configure("zls", {})
-      -- -- TOOD: i think this whole thing can be removed if we manage them via nix
-      -- require("mason").setup({})
-      -- require("mason-lspconfig").setup({
-      --   -- add additional LSPs here! the rest is magic
-      --   ensure_installed = {
-      --     "clangd",
-      --     "lua_ls",
-      --     "marksman",
-      --     "rust_analyzer",
-      --     "taplo",
-      --   },
-      --   automatic_installation = false,
-      --   handlers = {
-      --     lsp_zero.default_setup,
-      --   },
-      -- })
     end
   },
   {
@@ -372,6 +323,16 @@ require("lazy").setup({
           { name = "cmdline" }
         })
       })
+    end
+  },
+
+  -- function signatures
+  {
+    "ray-x/lsp_signature.nvim",
+    event = "VeryLazy",
+    opts = {},
+    config = function(_, opts)
+      require("lsp_signature").setup(opts)
     end
   },
 
