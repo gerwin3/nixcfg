@@ -8,6 +8,7 @@
     modules/firmware.nix
     modules/fonts.nix
     modules/gnome.nix
+    modules/greetd.nix
     modules/locale.nix
     modules/networking.nix
     modules/nix.nix
