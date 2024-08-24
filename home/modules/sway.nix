@@ -116,16 +116,16 @@
           "${mod}+Shift+q" = "kill";
           "${mod}+Shift+space" = "floating toggle";
 
-          "${mod}+Shift+1" = "move container to workspace ${workspaces.ws1}";
-          "${mod}+Shift+2" = "move container to workspace ${workspaces.ws2}";
-          "${mod}+Shift+3" = "move container to workspace ${workspaces.ws3}";
-          "${mod}+Shift+4" = "move container to workspace ${workspaces.ws4}";
-          "${mod}+Shift+5" = "move container to workspace ${workspaces.ws5}";
-          "${mod}+Shift+6" = "move container to workspace ${workspaces.ws6}";
-          "${mod}+Shift+7" = "move container to workspace ${workspaces.ws7}";
-          "${mod}+Shift+8" = "move container to workspace ${workspaces.ws8}";
-          "${mod}+Shift+9" = "move container to workspace ${workspaces.ws9}";
-          "${mod}+Shift+0" = "move container to workspace ${workspaces.ws10}";
+          "${mod}+Shift+1" = "move container to workspace ${workspaces.ws1}; workspace ${workspaces.ws1}";
+          "${mod}+Shift+2" = "move container to workspace ${workspaces.ws2}; workspace ${workspaces.ws2}";
+          "${mod}+Shift+3" = "move container to workspace ${workspaces.ws3}; workspace ${workspaces.ws3}";
+          "${mod}+Shift+4" = "move container to workspace ${workspaces.ws4}; workspace ${workspaces.ws4}";
+          "${mod}+Shift+5" = "move container to workspace ${workspaces.ws5}; workspace ${workspaces.ws5}";
+          "${mod}+Shift+6" = "move container to workspace ${workspaces.ws6}; workspace ${workspaces.ws6}";
+          "${mod}+Shift+7" = "move container to workspace ${workspaces.ws7}; workspace ${workspaces.ws7}";
+          "${mod}+Shift+8" = "move container to workspace ${workspaces.ws8}; workspace ${workspaces.ws8}";
+          "${mod}+Shift+9" = "move container to workspace ${workspaces.ws9}; workspace ${workspaces.ws9}";
+          "${mod}+Shift+0" = "move container to workspace ${workspaces.ws10}; workspace ${workspaces.ws10}";
 
           # -- Hardware keys --
 
