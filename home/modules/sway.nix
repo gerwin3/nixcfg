@@ -88,6 +88,7 @@
           "${mod}+j" = "focus down";
           "${mod}+k" = "focus up";
           "${mod}+l" = "focus right";
+          "${mod}+m" = "mode move";
           "${mod}+n" = "workspace next_on_output";
           "${mod}+p" = "workspace prev_on_output";
           "${mod}+u" = "split h";
@@ -135,6 +136,27 @@
             "exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-";
           "XF86AudioMute" =
             "exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+        };
+        modes = {
+          # Move mode allows switching to any workspace without having to reach
+          # for the number keys. Activate move mode by pressing Mod+m, then the
+          # mappings are:
+          # * m, n -> 1, 2 (workspaces on monitor 1)
+          # * a, s, d, f -> 3, 4, 5, 6 (workspaces on monitor 2)
+          # * j, m, k, ; -> 7, 8, 9, 10 (workspaces on monitor 3)
+          move = {
+            "n" = "workspace ${workspaces.ws1}; mode default";
+            "m" = "workspace ${workspaces.ws2}; mode default";
+            "a" = "workspace ${workspaces.ws3}; mode default";
+            "s" = "workspace ${workspaces.ws4}; mode default";
+            "d" = "workspace ${workspaces.ws5}; mode default";
+            "f" = "workspace ${workspaces.ws6}; mode default";
+            "j" = "workspace ${workspaces.ws7}; mode default";
+            "k" = "workspace ${workspaces.ws8}; mode default";
+            "l" = "workspace ${workspaces.ws9}; mode default";
+            "Semicolon" = "workspace ${workspaces.ws10}; mode default";
+            "Escape" = "mode default";
+          };
         };
         defaultWorkspace = "workspace ${workspaces.ws1}";
         workspaceOutputAssign = [
