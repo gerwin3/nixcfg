@@ -5,6 +5,7 @@
     modules/1password.nix
     modules/bluetooth.nix
     modules/boot.nix
+    modules/firmware.nix
     modules/fonts.nix
     modules/gnome.nix
     modules/locale.nix
