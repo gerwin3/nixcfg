@@ -34,22 +34,6 @@
           default = [ "" "" "" ];
         };
       };
-      # Always show workspaces on designated monitors, even when there are no
-      # windows.
-      "sway/workspaces" = {
-        persistent-workspaces = {
-          "1" = [ "DP-1" ];
-          "2" = [ "DP-1" ];
-          "3" = [ "DP-2" ];
-          "4" = [ "DP-2" ];
-          "5" = [ "DP-2" ];
-          "6" = [ "DP-2" ];
-          "7" = [ "HDMI-A-1" ];
-          "8" = [ "HDMI-A-1" ];
-          "9" = [ "HDMI-A-1" ];
-          "10" = [ "HDMI-A-1" ];
-        };
-      };
     }];
     style = ''
       * {
