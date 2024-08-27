@@ -270,6 +270,7 @@ require("lazy").setup({
         }
       })
       lsp_zero.configure("taplo", {})
+      -- TODO: This has no effect for some reason.
       lsp_zero.configure("zls", {
         settings = {
           ["zls"] = {
