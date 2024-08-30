@@ -170,7 +170,7 @@
             "j" = "move container to workspace ${workspaces.ws7}; workspace ${workspaces.ws7}; mode default";
             "k" = "move container to workspace ${workspaces.ws8}; workspace ${workspaces.ws8}; mode default";
             "l" = "move container to workspace ${workspaces.ws9}; workspace ${workspaces.ws9}; mode default";
-            "Semicolon" = "move container to workspace ${workspaces.ws1}; workspace ${workspaces.ws10}; mode default";
+            "Semicolon" = "move container to workspace ${workspaces.ws10}; workspace ${workspaces.ws10}; mode default";
             "Escape" = "mode default";
           };
         };
