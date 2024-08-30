@@ -91,6 +91,7 @@
           "${mod}+m" = "mode move";
           "${mod}+n" = "workspace next_on_output";
           "${mod}+p" = "workspace prev_on_output";
+          "${mod}+t" = "mode take";
           "${mod}+u" = "split h";
           "${mod}+v" = "split v";
           "${mod}+w" = "layout tabbed";
@@ -114,7 +115,6 @@
           "${mod}+Shift+j" = "move down";
           "${mod}+Shift+k" = "move up";
           "${mod}+Shift+l" = "move right";
-          "${mod}+Shift+m" = "mode take";
           "${mod}+Shift+q" = "kill";
           "${mod}+Shift+space" = "floating toggle";
 
