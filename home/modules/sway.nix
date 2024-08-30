@@ -114,6 +114,7 @@
           "${mod}+Shift+j" = "move down";
           "${mod}+Shift+k" = "move up";
           "${mod}+Shift+l" = "move right";
+          "${mod}+Shift+m" = "mode take";
           "${mod}+Shift+q" = "kill";
           "${mod}+Shift+space" = "floating toggle";
 
@@ -155,6 +156,21 @@
             "k" = "workspace ${workspaces.ws8}; mode default";
             "l" = "workspace ${workspaces.ws9}; mode default";
             "Semicolon" = "workspace ${workspaces.ws10}; mode default";
+            "Escape" = "mode default";
+          };
+          # Take mode is the same as move mode but it takes the currently
+          # selected window with it.
+          take = {
+            "n" = "move container to workspace ${workspaces.ws1}; workspace ${workspaces.ws1}; mode default";
+            "m" = "move container to workspace ${workspaces.ws2}; workspace ${workspaces.ws2}; mode default";
+            "a" = "move container to workspace ${workspaces.ws3}; workspace ${workspaces.ws3}; mode default";
+            "s" = "move container to workspace ${workspaces.ws4}; workspace ${workspaces.ws4}; mode default";
+            "d" = "move container to workspace ${workspaces.ws5}; workspace ${workspaces.ws5}; mode default";
+            "f" = "move container to workspace ${workspaces.ws6}; workspace ${workspaces.ws6}; mode default";
+            "j" = "move container to workspace ${workspaces.ws7}; workspace ${workspaces.ws7}; mode default";
+            "k" = "move container to workspace ${workspaces.ws8}; workspace ${workspaces.ws8}; mode default";
+            "l" = "move container to workspace ${workspaces.ws9}; workspace ${workspaces.ws9}; mode default";
+            "Semicolon" = "move container to workspace ${workspaces.ws1}; workspace ${workspaces.ws10}; mode default";
             "Escape" = "mode default";
           };
         };
@@ -231,6 +247,8 @@
     extraConfig = ''
       focus_follows_mouse no
     '';
+
+    wrapperFeatures.gtk = true;
   };
 
   home.packages = [
