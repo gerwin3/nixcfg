@@ -14,7 +14,7 @@ To update the system, use:
 ./apply --update
 ```
 
-This will do all of the above, as well as updating the lock file.
+This will apply the configuration, as well as updating the lock file.
 
 ## Known Issues
 
@@ -58,6 +58,33 @@ Then perform the installation on the target machine:
    filesystem on it and configure the `nix` and `persist` partitions as btrfs
    subvolumes.
 
+   Use the [NixOS installation guide UEFI section](https://nixos.org/manual/nixos/stable/#sec-installation-manual-partitioning-UEFI)
+   for reference:
+   
+    ```bash
+    # Partition a primary disk and a 2GB boot partition.
+    parted /dev/nvme0n1 -- mklabel gpt
+    parted /dev/nvme0n1 -- mkpart root 2048MB 100%
+    parted /dev/nvme0n1 -- mkpart ESP fat32 1MB 2048MB
+    parted /dev/nvme0n1 -- set 2 esp on
+
+    # Format and mount the boot partition (from NixOS installation guide).
+    mkfs.fat -F 32 -n boot /dev/nvme0n1p2
+    mkdir -p /mnt/boot
+    mount -o umask=077 /dev/disk/by-label/boot /mnt/boot
+
+    # Format LUKS encrypted partition, and create btrfs filesystem inside it.
+    cryptsetup luksFormat /dev/nvme0n1p1
+    cryptsetup open /dev/nvme0n1p1 root
+    mkfs.btrfs /dev/mapper/root
+    mount /dev/mapper/root /mnt
+    # Create subvolumes for nix and persistence, then mount them.
+    btrfs subvolume create /mnt/nix
+    btrfs subvolume create /mnt/persist
+    mount -o subvol=nix /dev/mapper/root /mnt/nix
+    mount -o subvol=persist /dev/mapper/root /mnt/persist
+    ```
+
 3. Generate the hardware configuration with `nixos-generate-config` or use one
    of the pre-defined ones. Either way, make sure to modify the configuration
    to suit your needs.
@@ -67,14 +94,37 @@ Then perform the installation on the target machine:
 
    The `tmpfs` file system entry needs to be added manually, for example:
 
-   ```nix
-   fileSystems."/" = {
-     device = "none";
-     fsType = "tmpfs";
-     options = [ "defaults" "size=25G" "mode=755" ];
-     neededForBoot = true;
-   };
-   ```
+    ```nix
+    fileSystems."/" = {
+      device = "none";
+      fsType = "tmpfs";
+      options = [ "defaults" "size=25G" "mode=755" ];
+      neededForBoot = true;
+    };
+    ```
+
+   This is also the time to add other useful stuff:
+
+    ```nix
+    kernelPackages = pkgs.linuxPackages_latest;
+    loader.efi.canTouchEfiVariables = true;
+    ```
+
+   Also for persistence it is necessary to add `neededForBoot` attributes to
+   each of the three volumes: `nix`, `persistence` and `tmpfs`:
+
+    ```nix
+    fileSystems."/".neededForBoot = true;
+    fileSystems."/nix".neededForBoot = true;
+    fileSystems."/persist".neededForBoot = true;
+    ```
+
+   Refer to [framework-13-Ryzen.nix](./nixos/hardware/framework-13-Ryzen.nix] for
+   a good starting point.
+
+> [!NOTE] It is advisable to temporarily comment out the private modules such
+> as `wireguard.nix` and re-add them after installation when git credentials
+> have been set up.
 
 4. Generate your user password:
 
@@ -99,126 +149,3 @@ Then perform the installation on the target machine:
     sudo nixos-install --no-root-passwd --flake /mnt/persist/etc/nixos#system && \
         sudo reboot now
     ```
-
-## Installation on Mac with Asahi
-
-1. Download a modified NixOS bootable ISO with Asahi support [from nixos-apple-silicon releases](https://github.com/tpwrules/nixos-apple-silicon/releases) and create a bootable USB using `dd` (from Linux or macOS).
-
-2. Install Asahi UEFI by following the [NixOS Apple Silicon Guide](https://github.com/tpwrules/nixos-apple-silicon/blob/main/docs/uefi-standalone.md#uefi-preparation) from "UEFI Preparation" onwards.
-
-> [!WARNING]  
-> Make sure to select the correct partition. It will usually be
-> `/dev/nvme0n1p5` but use the steps from the NixOS Apple Silicon Guide to
-> check.
-
-3. When you get to partitioning and formatting, instead of setting up `ext4`, use the following steps to set up an encrypted `btrfs` partition:
-
-    First, switch to the root user:
-
-    ```bash
-    sudo su
-    ```
-
-    Second, use `nix-shell` to get the `btrfs` tools. (They are not part of the installation ISO by default.)
-
-    ```bash
-    nix-shell -p btrfs-progs
-    ```
-
-    Then continue with creating the LUKS encrypted partition with `btrfs`:
-    
-    ```bash
-    # Create a new partition in the empty space created by the Asahi installer.
-    sgdisk /dev/nvme0n1 -n 0:0 -s
-    # Create a LUKS partition and open it.
-    cryptsetup luksFormat /dev/nvme0n1p5
-    cryptsetup open /dev/nvme0n1p5 crypted
-    # Create a BTRFS filesystem on the encrypted partition.
-    mkfs.btrfs /dev/mapper/crypted
-    mount /dev/mapper/crypted /mnt
-    # Create and mount the `nix` and `persist` subvolumes.
-    btrfs subvolume create /mnt/nix
-    btrfs subvolume create /mnt/persist
-    mount -o subvol=nix /dev/mapper/crypted /mnt/nix
-    mount -o subvol=persist /dev/mapper/crypted /mnt/persist
-    ```
-
-    Finally, mount the boot partition:
-
-    ```bash
-    mkdir -p /mnt/boot
-    mount /dev/disk/by-partuuid/`cat /proc/device-tree/chosen/asahi,efi-system-partition` /mnt/boot
-    ```
-
-4. Follow step 3 through 5 from the general installation guide above. There's already a hardware configuration file for a MacBook M2 Air (in the `laptop` system configuration) that works.
-
-> [!WARNING]  
-> If you reuse it (instead of creating your own), make sure to update the
-> disks, since the UUID's will change after recreating the disks.
-
-5. Make sure to make the following changes to the hardware configuration:
-
-    * Set `boot.loader.efi.canTouchEfiVariables = false`.
-    * Set `hardware.asahi.extractPeripheralFirmware = false`. This can be changed later but it must be set to `false` during installation.
-
-    * Override the default root filesystem entry:
-
-        ```nix
-        fileSystems."/" = {
-          device = "none";
-          fsType = "tmpfs";
-          options = [ "defaults" "size=25G" "mode=755" ];
-        };
-        ```
-
-    * And set the `neededForBoot` flags:
-
-        ```nix
-        fileSystems."/".neededForBoot = true;
-        fileSystems."/nix".neededForBoot = true;
-        fileSystems."/persist".neededForBoot = true;
-        ```
-
-    If you use the hardware configuration that is included in this repository, most settings will be correct, except for `extractPeripheralFirmware`. It needs to be disabled manually before installing (and can be changed later).
-
-6. Copy over the `apple-silicon-support` module from the installation medium:
-
-    ```bash
-    sudo cp -r /etc/nixos/apple-silicon-support /mnt/persist/etc/nixos/
-    ```
-
-> [!NOTE]
-> The command below assumes the default `laptop` configuration.
-
-> [!NOTE]
-> If the USB stick does not have enough storage space to build NixOS, the
-> installer might fail. To get around it, symlink `/tmp` to the host disk:
->
-> ```bash
-> rm -r /tmp
-> mkdir /mnt/tmp
-> chmod 1777 /mnt/tmp
-> ln -s /mnt/tmp /tmp
-> ```
-
-7. Perform installation:
-
-    ```bash
-    sudo nixos-install --no-root-passwd --flake /mnt/persist/etc/nixos#laptop && \
-        sudo reboot now
-    ```
-
-8. After installation, copy over the firmware (which is now present on `/boot`):
-
-    ```bash
-    sudo mkdir -p /etc/nixos/nixos/hardware/firmware
-    sudo cp /boot/asahi/{all_firmware.tar.gz,kernelcache*} /etc/nixos/nixos/hardware/firmware
-    ```
-
-    Then, comment `hardware.asahi.extractPeripheralFirmware = false` back out
-    and revert to the original settings, and rebuild. Make sure to use the
-    `--impure` flag when rebuilding.
-
-## Resources
-
-* [NixOS Apple Silicon Guide](https://github.com/tpwrules/nixos-apple-silicon/blob/main/docs/uefi-standalone.md)
