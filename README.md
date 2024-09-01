@@ -22,29 +22,12 @@ This will apply the configuration, as well as updating the lock file.
 
 ## Installation
 
-First, create a bootable medium from the [minimal NixOS installation image](https://nixos.org/download/), and boot from it on the target machine.
+First, create a bootable medium from the [minimal NixOS installation image](https://nixos.org/download/), and boot from it on the target machine. Then follow the installation steps:
 
-> [!NOTE]
-> It is easier to connect to the target machine over SSH and run installation
-> from there. An SSH server is already configured, you just need to set a
-> password for the `nixos` user:
->
-> ```bash
-> passwd
-> ```
-> 
-> Then find the target host IP address:
->
-> ```bash
-> ip address
-> ```
-
-Then perform the installation on the target machine:
-
-1. Copy over the nix configuration to the target host:
+1. Clone this repository:
 
     ```bash
-    scp -r * nixos@$10.0.0.1:~
+    git clone https://github.com/gerwin3/nixcfg.git
     ```
 
 2. Partition the disks as needed. This configuration expects the following
