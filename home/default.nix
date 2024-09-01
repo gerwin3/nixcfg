@@ -20,6 +20,7 @@
     modules/swaylock.nix
     modules/waybar.nix
   ]
+  # TODO: maybe use inline if statements inside sway.nix?
   ++ (lib.optional (variant == "desktop") modules/sway.desktop.nix)
   ++ (lib.optional (variant == "laptop") modules/sway.laptop.nix);
 

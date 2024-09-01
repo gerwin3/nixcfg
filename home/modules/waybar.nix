@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, variant, ... }:
 
 {
   programs.waybar = {
@@ -8,11 +8,24 @@
       position = "top";
       modules-left = [ "sway/workspaces" ];
       modules-center = [ ];
-      modules-right = [ "cpu" "memory" "pulseaudio" "clock" ];
+      modules-right = [ "cpu" "memory" "pulseaudio" ]
+        ++ lib.optional (variant == "laptop") "battery"
+        ++ [ "clock" ];
       margin-top = 2;
       margin-bottom = -6;
       margin-left = 5;
       margin-right = 5;
+      battery = {
+        states = {
+          warning = 30;
+          critical = 15;
+        };
+        format = "{icon} {capacity}%";
+        format-charging = "󰂄 {capacity}%";
+        format-alt = "{time} {icon}";
+        format-full = "󰁹 {capacity}%";
+        format-icons = [ "󰁺" "󰁾" "󰂁" ];
+      };
       clock = {
         format = "  {:%Y-%m-%d %H:%M:%S}";
         interval = 1;
@@ -88,6 +101,7 @@
         background: transparent;
         opacity: 0.65;
       }
+      #battery,
       #clock,
       #cpu,
       #memory,
@@ -109,6 +123,7 @@
       #cpu        { color: @pink; }
       #memory     { color: @pink; }
       #pulseaudio { color: @pink; }
+      #battery    { color: @mauve; }
       #clock      { color: @lavender; }
 
       #pulseaudio.muted {
