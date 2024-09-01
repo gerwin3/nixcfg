@@ -42,7 +42,10 @@
               ./home
               inputs.catppuccin.homeManagerModules.catppuccin
             ];
-            home-manager.extraSpecialArgs = { inherit inputs; };
+            home-manager.extraSpecialArgs = {
+              inherit inputs;
+              variant = "desktop";
+            };
           }
         ];
       };
@@ -63,7 +66,10 @@
               ./home
               inputs.catppuccin.homeManagerModules.catppuccin
             ];
-            home-manager.extraSpecialArgs = { inherit inputs; };
+            home-manager.extraSpecialArgs = {
+              inherit inputs;
+              variant = "laptop";
+            };
           }
         ];
       };

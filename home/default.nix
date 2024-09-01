@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, variant, ... }:
 
 {
   imports = [
@@ -19,7 +19,9 @@
     modules/sway.nix
     modules/swaylock.nix
     modules/waybar.nix
-  ];
+  ]
+  ++ (lib.optional (variant == "desktop") modules/sway.desktop.nix)
+  ++ (lib.optional (variant == "laptop") modules/sway.laptop.nix);
 
   home = {
     username = "gerwin";

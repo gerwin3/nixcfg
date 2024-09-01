@@ -18,11 +18,6 @@
           ws9 = "9";
           ws10 = "10";
         };
-        outputs = {
-          mon1 = "DP-1";
-          mon2 = "DP-2";
-          mon3 = "HDMI-A-1";
-        };
       in
       {
         modifier = mod;
@@ -36,33 +31,6 @@
             repeat_rate = "25";
             repeat_delay = "200";
             xkb_numlock = "enabled";
-          };
-        };
-        output = {
-          #      0000       1920     3000       4920
-          #        │          │        │          │
-          #        │          ▼        ▼          │
-          # 0000   │          ┌────────┐          │
-          #        ▼          │        │          ▼
-          # 0450 ─►┌──────────┤        ├──────────┐
-          #        │          │        │          │
-          # 1080   │   DP-1   │  DP-2  │ HDMI-A-1 │
-          #        │          │        │          │
-          # 1680 ─►└──────────┤        ├──────────┘
-          #                   │        │
-          # 1920              └────────┘
-          "DP-1" = {
-            pos = "0 450";
-            bg = "${../resources/background-horizontal.png} fill";
-          };
-          "DP-2" = {
-            pos = "1920 0";
-            transform = "90";
-            bg = "${../resources/background-vertical.png} fill";
-          };
-          "HDMI-A-1" = {
-            pos = "3000 420";
-            bg = "${../resources/background-horizontal.png} fill";
           };
         };
         keybindings = {
@@ -175,18 +143,6 @@
           };
         };
         defaultWorkspace = "workspace ${workspaces.ws1}";
-        workspaceOutputAssign = [
-          { workspace = workspaces.ws1; output = outputs.mon1; }
-          { workspace = workspaces.ws2; output = outputs.mon1; }
-          { workspace = workspaces.ws3; output = outputs.mon2; }
-          { workspace = workspaces.ws4; output = outputs.mon2; }
-          { workspace = workspaces.ws5; output = outputs.mon2; }
-          { workspace = workspaces.ws6; output = outputs.mon2; }
-          { workspace = workspaces.ws7; output = outputs.mon3; }
-          { workspace = workspaces.ws8; output = outputs.mon3; }
-          { workspace = workspaces.ws9; output = outputs.mon3; }
-          { workspace = workspaces.ws10; output = outputs.mon3; }
-        ];
         window = {
           titlebar = false;
           border = 2;
