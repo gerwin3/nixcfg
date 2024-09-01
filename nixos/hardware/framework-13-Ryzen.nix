@@ -7,9 +7,9 @@
     kernelPackages = pkgs.linuxPackages_latest;
     loader.efi.canTouchEfiVariables = true;
     initrd = {
-      availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
+      availableKernelModules = [ "nvme" "xhci_pci" "thunderbolt" "usb_storage" "sd_mod" ];
       kernelModules = [ ];
-      luks.devices."luksdev".device = "/dev/disk/by-uuid/6f5f97f7-69c0-4387-9897-b3b0c9a7c6f6";
+      luks.devices."root".device = "/dev/disk/by-uuid/96edbc57-4610-49f7-a86b-35858431bc0b";
     };
   };
 
@@ -18,28 +18,28 @@
   fileSystems."/" = {
     device = "none";
     fsType = "tmpfs";
-    options = [ "defaults" "size=25G" "mode=755" ];
+    options = [ "defaults" "size=15G" "mode=755" ];
     neededForBoot = true;
   };
 
   fileSystems."/nix" = {
-    device = "/dev/disk/by-uuid/71db0628-669c-4fc9-9c4f-479aa02d0931";
+    device = "/dev/disk/by-uuid/fdf62c87-45d0-4807-a43d-1967ca29a30b";
     fsType = "btrfs";
     options = [ "subvol=nix" ];
     neededForBoot = true;
   };
 
   fileSystems."/persist" = {
-    device = "/dev/disk/by-uuid/71db0628-669c-4fc9-9c4f-479aa02d0931";
+    device = "/dev/disk/by-uuid/fdf62c87-45d0-4807-a43d-1967ca29a30b";
     fsType = "btrfs";
     options = [ "subvol=persist" ];
     neededForBoot = true;
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/1D80-EB7A";
+    device = "/dev/disk/by-uuid/D8DC-96BE";
     fsType = "vfat";
-    options = [ "fmask=0022" "dmask=0022" ];
+    options = [ "fmask=0077" "dmask=0077" ];
   };
 
   networking.useDHCP = lib.mkDefault true;

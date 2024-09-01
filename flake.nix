@@ -48,19 +48,13 @@
       };
 
       "gerwin-laptop" = nixpkgs.lib.nixosSystem {
-        system = "aarch64-linux";
+        system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
-          {
-            nixpkgs.overlays = [
-              inputs.nur.overlay
-              inputs.apple-silicon.overlays.apple-silicon-overlay
-            ];
-          }
+          { nixpkgs.overlays = [ inputs.nur.overlay ]; }
           ./nixos/laptop.nix
           inputs.impermanence.nixosModules.impermanence
           inputs.home-manager.nixosModules.home-manager
-          inputs.apple-silicon.nixosModules.apple-silicon-support
           inputs.catppuccin.nixosModules.catppuccin
           {
             home-manager.useGlobalPkgs = true;
