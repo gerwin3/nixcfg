@@ -18,6 +18,7 @@
         caps-lock-bs-hl-color = "${red}";
         caps-lock-key-hl-color = "${fg}";
         font = "Iosevka Nerd Font";
+        # TODO: fix on laptop
         font-size = 16;
         indicator-idle-visible = false;
         indicator-radius = 72;
