@@ -19,7 +19,6 @@
     modules/security.nix
     modules/swaylock.nix
     modules/users.nix
-    # modules/wireguard.nix # Fix later
   ];
 
   system.stateVersion = "23.11"; # Never change this.
