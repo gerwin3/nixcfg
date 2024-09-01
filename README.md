@@ -41,8 +41,8 @@ First, create a bootable medium from the [minimal NixOS installation image](http
    filesystem on it and configure the `nix` and `persist` partitions as btrfs
    subvolumes.
 
-   Use the [NixOS installation guide UEFI section](https://nixos.org/manual/nixos/stable/#sec-installation-manual-partitioning-UEFI)
-   for reference:
+   These are (roughly) the steps needed to partition the disk and create the
+   necessary file systems:
    
     ```bash
     # Partition a primary disk and a 2GB boot partition.
@@ -67,6 +67,10 @@ First, create a bootable medium from the [minimal NixOS installation image](http
     mount -o subvol=nix /dev/mapper/root /mnt/nix
     mount -o subvol=persist /dev/mapper/root /mnt/persist
     ```
+
+> [!NOTE]
+> Refer to the [NixOS installation guide UEFI section](https://nixos.org/manual/nixos/stable/#sec-installation-manual-partitioning-UEFI)
+> for more information>
 
 3. Generate the hardware configuration with `nixos-generate-config` or use one
    of the pre-defined ones. Either way, make sure to modify the configuration
@@ -105,7 +109,8 @@ First, create a bootable medium from the [minimal NixOS installation image](http
    Refer to [framework-13-Ryzen.nix](./nixos/hardware/framework-13-Ryzen.nix] for
    a good starting point.
 
-> [!NOTE] It is advisable to temporarily comment out the private modules such
+> [!NOTE]
+> It is advisable to temporarily comment out the private modules such
 > as `wireguard.nix` and re-add them after installation when git credentials
 > have been set up.
 
