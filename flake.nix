@@ -12,10 +12,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    apple-silicon = {
-      url = "github:tpwrules/nixos-apple-silicon";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     impermanence = {
       url = "github:nix-community/impermanence";
     };
@@ -58,6 +55,7 @@
           ./nixos/laptop.nix
           inputs.impermanence.nixosModules.impermanence
           inputs.home-manager.nixosModules.home-manager
+          inputs.nixos-hardware.nixosModules.framework-13-7040-amd
           inputs.catppuccin.nixosModules.catppuccin
           {
             home-manager.useGlobalPkgs = true;
