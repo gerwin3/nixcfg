@@ -4,6 +4,7 @@
   imports = [
     ./common.nix
     ./modules/brightness.nix
+    ./modules/fwupd.nix
     ./hardware/framework-13-Ryzen.nix
   ];
 

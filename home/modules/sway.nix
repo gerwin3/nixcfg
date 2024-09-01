@@ -6,18 +6,6 @@
     config =
       let
         mod = "Mod4";
-        workspaces = {
-          ws1 = "1";
-          ws2 = "2";
-          ws3 = "3";
-          ws4 = "4";
-          ws5 = "5";
-          ws6 = "6";
-          ws7 = "7";
-          ws8 = "8";
-          ws9 = "9";
-          ws10 = "10";
-        };
       in
       {
         modifier = mod;
@@ -64,16 +52,16 @@
           "${mod}+v" = "split v";
           "${mod}+w" = "layout tabbed";
 
-          "${mod}+1" = "workspace ${workspaces.ws1}";
-          "${mod}+2" = "workspace ${workspaces.ws2}";
-          "${mod}+3" = "workspace ${workspaces.ws3}";
-          "${mod}+4" = "workspace ${workspaces.ws4}";
-          "${mod}+5" = "workspace ${workspaces.ws5}";
-          "${mod}+6" = "workspace ${workspaces.ws6}";
-          "${mod}+7" = "workspace ${workspaces.ws7}";
-          "${mod}+8" = "workspace ${workspaces.ws8}";
-          "${mod}+9" = "workspace ${workspaces.ws9}";
-          "${mod}+0" = "workspace ${workspaces.ws10}";
+          "${mod}+1" = "workspace 1";
+          "${mod}+2" = "workspace 2";
+          "${mod}+3" = "workspace 3";
+          "${mod}+4" = "workspace 4";
+          "${mod}+5" = "workspace 5";
+          "${mod}+6" = "workspace 6";
+          "${mod}+7" = "workspace 7";
+          "${mod}+8" = "workspace 8";
+          "${mod}+9" = "workspace 9";
+          "${mod}+0" = "workspace 10";
 
           "${mod}+Ctrl+h" = "resize shrink width 10 px or 10 ppt";
           "${mod}+Ctrl+j" = "resize grow height 10 px or 10 ppt";
@@ -86,16 +74,16 @@
           "${mod}+Shift+q" = "kill";
           "${mod}+Shift+space" = "floating toggle";
 
-          "${mod}+Shift+1" = "move container to workspace ${workspaces.ws1}; workspace ${workspaces.ws1}";
-          "${mod}+Shift+2" = "move container to workspace ${workspaces.ws2}; workspace ${workspaces.ws2}";
-          "${mod}+Shift+3" = "move container to workspace ${workspaces.ws3}; workspace ${workspaces.ws3}";
-          "${mod}+Shift+4" = "move container to workspace ${workspaces.ws4}; workspace ${workspaces.ws4}";
-          "${mod}+Shift+5" = "move container to workspace ${workspaces.ws5}; workspace ${workspaces.ws5}";
-          "${mod}+Shift+6" = "move container to workspace ${workspaces.ws6}; workspace ${workspaces.ws6}";
-          "${mod}+Shift+7" = "move container to workspace ${workspaces.ws7}; workspace ${workspaces.ws7}";
-          "${mod}+Shift+8" = "move container to workspace ${workspaces.ws8}; workspace ${workspaces.ws8}";
-          "${mod}+Shift+9" = "move container to workspace ${workspaces.ws9}; workspace ${workspaces.ws9}";
-          "${mod}+Shift+0" = "move container to workspace ${workspaces.ws10}; workspace ${workspaces.ws10}";
+          "${mod}+Shift+1" = "move container to workspace 1; workspace 1";
+          "${mod}+Shift+2" = "move container to workspace 2; workspace 2";
+          "${mod}+Shift+3" = "move container to workspace 3; workspace 3";
+          "${mod}+Shift+4" = "move container to workspace 4; workspace 4";
+          "${mod}+Shift+5" = "move container to workspace 5; workspace 5";
+          "${mod}+Shift+6" = "move container to workspace 6; workspace 6";
+          "${mod}+Shift+7" = "move container to workspace 7; workspace 7";
+          "${mod}+Shift+8" = "move container to workspace 8; workspace 8";
+          "${mod}+Shift+9" = "move container to workspace 9; workspace 9";
+          "${mod}+Shift+0" = "move container to workspace 10; workspace 10";
 
           # -- Hardware keys --
 
@@ -106,43 +94,7 @@
           "XF86AudioMute" =
             "exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
         };
-        modes = {
-          # Move mode allows switching to any workspace without having to reach
-          # for the number keys. Activate move mode by pressing Mod+m, then the
-          # mappings are:
-          # * m, n -> 1, 2 (workspaces on monitor 1)
-          # * a, s, d, f -> 3, 4, 5, 6 (workspaces on monitor 2)
-          # * j, m, k, ; -> 7, 8, 9, 10 (workspaces on monitor 3)
-          move = {
-            "n" = "workspace ${workspaces.ws1}; mode default";
-            "m" = "workspace ${workspaces.ws2}; mode default";
-            "a" = "workspace ${workspaces.ws3}; mode default";
-            "s" = "workspace ${workspaces.ws4}; mode default";
-            "d" = "workspace ${workspaces.ws5}; mode default";
-            "f" = "workspace ${workspaces.ws6}; mode default";
-            "j" = "workspace ${workspaces.ws7}; mode default";
-            "k" = "workspace ${workspaces.ws8}; mode default";
-            "l" = "workspace ${workspaces.ws9}; mode default";
-            "Semicolon" = "workspace ${workspaces.ws10}; mode default";
-            "Escape" = "mode default";
-          };
-          # Take mode is the same as move mode but it takes the currently
-          # selected window with it.
-          take = {
-            "n" = "move container to workspace ${workspaces.ws1}; workspace ${workspaces.ws1}; mode default";
-            "m" = "move container to workspace ${workspaces.ws2}; workspace ${workspaces.ws2}; mode default";
-            "a" = "move container to workspace ${workspaces.ws3}; workspace ${workspaces.ws3}; mode default";
-            "s" = "move container to workspace ${workspaces.ws4}; workspace ${workspaces.ws4}; mode default";
-            "d" = "move container to workspace ${workspaces.ws5}; workspace ${workspaces.ws5}; mode default";
-            "f" = "move container to workspace ${workspaces.ws6}; workspace ${workspaces.ws6}; mode default";
-            "j" = "move container to workspace ${workspaces.ws7}; workspace ${workspaces.ws7}; mode default";
-            "k" = "move container to workspace ${workspaces.ws8}; workspace ${workspaces.ws8}; mode default";
-            "l" = "move container to workspace ${workspaces.ws9}; workspace ${workspaces.ws9}; mode default";
-            "Semicolon" = "move container to workspace ${workspaces.ws10}; workspace ${workspaces.ws10}; mode default";
-            "Escape" = "mode default";
-          };
-        };
-        defaultWorkspace = "workspace ${workspaces.ws1}";
+        defaultWorkspace = "workspace 1";
         window = {
           titlebar = false;
           border = 2;
