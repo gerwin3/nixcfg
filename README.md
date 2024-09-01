@@ -90,6 +90,9 @@ First, create a bootable medium from the [minimal NixOS installation image](http
     };
     ```
 
+   In the example above, the `tmpfs` file system is 25GB in size. Make sure
+   this number is lower than the available RAM in the system.
+
    This is also the time to add other useful stuff:
 
     ```nix
@@ -126,7 +129,7 @@ First, create a bootable medium from the [minimal NixOS installation image](http
 
     ```bash
     sudo mkdir -p /mnt/persist/etc/nixos && \
-    sudo cp -r * /mnt/persist/etc/nixos
+        sudo cp -r * /mnt/persist/etc/nixos
     ```
 
 6. Perform installation:
