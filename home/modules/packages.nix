@@ -38,6 +38,11 @@
     pciutils
     usbutils
 
+    # secret management
+    # Note: Required for `secret-tool` (used by some applications for getting
+    # tokens).
+    libsecret
+
     # file management
     file
     which
