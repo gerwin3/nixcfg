@@ -70,7 +70,7 @@ First, create a bootable medium from the [minimal NixOS installation image](http
 
 > [!NOTE]
 > Refer to the [NixOS installation guide UEFI section](https://nixos.org/manual/nixos/stable/#sec-installation-manual-partitioning-UEFI)
-> for more information>
+> for more information.
 
 3. Generate the hardware configuration with `nixos-generate-config` or use one
    of the pre-defined ones. Either way, make sure to modify the configuration
@@ -109,7 +109,7 @@ First, create a bootable medium from the [minimal NixOS installation image](http
     fileSystems."/persist".neededForBoot = true;
     ```
 
-   Refer to [framework-13-Ryzen.nix](./nixos/hardware/framework-13-Ryzen.nix] for
+   Refer to [framework-13-Ryzen.nix](./nixos/hardware/framework-13-Ryzen.nix) for
    a good starting point.
 
 > [!NOTE]
