@@ -7,6 +7,7 @@
     enableVteIntegration = true;
     historyFileSize = -1;
     historySize = -1;
+    # TODO: Do not prepend newline on first prompt.
     initExtra = ''
       export EDITOR=vim
       export VISUAL=vim
