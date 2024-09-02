@@ -7,7 +7,6 @@
     enableVteIntegration = true;
     historyFileSize = -1;
     historySize = -1;
-    # TODO: Do not prepend newline on first prompt.
     initExtra = ''
       export EDITOR=vim
       export VISUAL=vim
@@ -29,7 +28,7 @@
           done
           printf '\e]7;file://%s%s\e\\' "''${HOSTNAME}" "''${encoded}"
       }
-      PROMPT_COMMAND=''${PROMPT_COMMAND:+$PROMPT_COMMAND; }osc7_cwd
+      PROMPT_COMMAND="''${PROMPT_COMMAND:+$PROMPT_COMMAND; }osc7_cwd"
 
       # Custom prompt
       color1="\[$(tput setaf 183)\]"
@@ -40,8 +39,17 @@
       # custom prompt
       if [[ "$DISPLAY" == ":0" ]]
       then
-          export PS1="\n''${color1}\t ''${color2}\h''${reset}:''${color3}\W''${gray}''${reset} > "
+          export PS1="''${color1}\t ''${color2}\h''${reset}:''${color3}\W''${gray}''${reset} > "
       fi
+      # Print newline before prompt except on first prompt.
+      __prompt_newline() {
+        if [[ -z "''${PROMPT_FIRST_TIME}" ]]; then
+          PROMPT_FIRST_TIME=1
+        else
+          printf '\n'
+        fi
+      }
+      PROMPT_COMMAND="''${PROMPT_COMMAND:+$PROMPT_COMMAND; }__prompt_newline"
     '';
     shellAliases = {
       copy = "wl-copy";
