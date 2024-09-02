@@ -11,6 +11,19 @@
       export EDITOR=vim
       export VISUAL=vim
 
+      # Custom prompt
+      color1="\[$(tput setaf 183)\]"
+      color2="\[$(tput setaf 225)\]"
+      color3="\[$(tput setaf 147)\]"
+      gray="\[$(tput setaf 8)\]"
+      reset="\[$(tput sgr0)\]"
+      # custom prompt
+      if [[ "$DISPLAY" == ":0" ]]
+      then
+          export PS1="''${color1}\t ''${color2}\h''${reset}:''${color3}\W''${gray}''${reset} > "
+      fi
+      PROMPT_COMMAND="export PROMPT_COMMAND=echo"
+
       # This is required for OSC7 integration which ensures that foot can
       # determine the current directory and spawn a new shell in the same
       # directory when using the Shift+Ctrl+N combination.
@@ -28,19 +41,8 @@
           done
           printf '\e]7;file://%s%s\e\\' "''${HOSTNAME}" "''${encoded}"
       }
+      # Adds a newline after command output.
       PROMPT_COMMAND=''${PROMPT_COMMAND:+$PROMPT_COMMAND; }osc7_cwd
-
-      # Custom prompt
-      color1="\[$(tput setaf 183)\]"
-      color2="\[$(tput setaf 225)\]"
-      color3="\[$(tput setaf 147)\]"
-      gray="\[$(tput setaf 8)\]"
-      reset="\[$(tput sgr0)\]"
-      # custom prompt
-      if [[ "$DISPLAY" == ":0" ]]
-      then
-          export PS1="''${color1}\t ''${color2}\h''${reset}:''${color3}\W''${gray}''${reset} > "
-      fi
     '';
     shellAliases = {
       copy = "wl-copy";
