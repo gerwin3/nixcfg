@@ -131,8 +131,8 @@ require("lazy").setup({
     lazy = false,
     config = function()
       require("catppuccin").setup({
-        transparent_background = false,
         flavour = "mocha",
+        transparent_background = false,
       })
       vim.cmd([[colorscheme catppuccin]])
     end
@@ -229,7 +229,9 @@ require("lazy").setup({
       local lsp_zero = require("lsp-zero")
       lsp_zero.extend_lspconfig()
       lsp_zero.on_attach(
-        function(_, bufnr)
+        function(client, bufnr)
+          -- Disable semantic LSP highlighting (I think it sucks)
+          client.server_capabilities.semanticTokensProvider = nil
           lsp_zero.default_keymaps({ buffer = bufnr })
           lsp_zero.buffer_autoformat()
           vim.keymap.set("n", "ga", vim.lsp.buf.code_action, { noremap = true, silent = true })
