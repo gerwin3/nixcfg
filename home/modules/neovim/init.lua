@@ -120,6 +120,10 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- TODO: config is now a hack: all plugins are laoded throug Nix, then we use
+-- Lazy here to configure them -- should be possible to configure them without
+-- Lazy here
+
 -- plugins
 require("lazy").setup({
 
