@@ -34,12 +34,12 @@
         # Move mode allows switching to any workspace without having to reach
         # for the number keys. Activate move mode by pressing Mod+m, then the
         # mappings are:
-        # * m, n -> 1, 2 (workspaces on monitor 1)
+        # * e, r -> 1, 2 (workspaces on monitor 1)
         # * a, s, d, f -> 3, 4, 5, 6 (workspaces on monitor 2)
         # * j, m, k, ; -> 7, 8, 9, 10 (workspaces on monitor 3)
         move = {
-          "n" = "workspace 1; mode default";
-          "m" = "workspace 2; mode default";
+          "e" = "workspace 1; mode default";
+          "r" = "workspace 2; mode default";
           "a" = "workspace 3; mode default";
           "s" = "workspace 4; mode default";
           "d" = "workspace 5; mode default";
@@ -53,8 +53,8 @@
         # Take mode is the same as move mode but it takes the currently
         # selected window with it.
         take = {
-          "n" = "move container to workspace 1; workspace 1; mode default";
-          "m" = "move container to workspace 2; workspace 2; mode default";
+          "e" = "move container to workspace 1; workspace 1; mode default";
+          "r" = "move container to workspace 2; workspace 2; mode default";
           "a" = "move container to workspace 3; workspace 3; mode default";
           "s" = "move container to workspace 4; workspace 4; mode default";
           "d" = "move container to workspace 5; workspace 5; mode default";
