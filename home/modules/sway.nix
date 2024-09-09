@@ -32,7 +32,7 @@
           "${mod}+Return" = "exec --no-startup-id foot";
           "${mod}+Shift+Return" = "exec --no-startup-id firefox";
           "${mod}+s" = "exec --no-startup-id grim -g \"$(slurp)\" - | wl-copy";
-          "${mod}+Space" = "exec --no-startup-id bemenu-run";
+          "${mod}+Space" = "exec --no-startup-id foot -a launcher -e sway-launcher-desktop";
           "${mod}+Escape" = "exec --no-startup-id swaylock";
 
           # -- Navigation --

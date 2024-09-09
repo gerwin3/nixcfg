@@ -60,5 +60,8 @@
 
     # lol
     cowsay
+
+    # desktop environment
+    sway-launcher-desktop
   ];
 }
