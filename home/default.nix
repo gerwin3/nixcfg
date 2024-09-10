@@ -3,7 +3,6 @@
 {
   imports = [
     modules/bash.nix
-    modules/bemenu.nix
     modules/direnv.nix
     modules/firefox.nix
     modules/fonts.nix

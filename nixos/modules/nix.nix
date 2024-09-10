@@ -2,7 +2,9 @@
 
 {
   nix = {
-    package = pkgs.nixVersions.latest;
+    # FIXME: Use this version until the RCE in 2.24 is fixed then go back to
+    # `nixVersions.latest`.
+    package = pkgs.nixVersions.nix_2_23;
 
     gc = {
       automatic = true;
