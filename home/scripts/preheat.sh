@@ -12,7 +12,7 @@ set -x
 
 preheat_dir () {
     dir=$1
-    if [ -f "$dir/flake.nix" ] || [ -f "$dir/default.nix" ]; then
+    if [ -f "${dir}flake.nix" ] || [ -f "${dir}default.nix" ]; then
         echo "preheating $dir"
         nix develop "$dir" --command true || true
     fi
