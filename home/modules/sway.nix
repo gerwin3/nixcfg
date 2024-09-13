@@ -150,6 +150,9 @@
             };
             background = background;
           };
+        startup = [
+          { command = "preheat"; }
+        ];
       };
 
     extraConfig = ''

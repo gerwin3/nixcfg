@@ -63,5 +63,8 @@
 
     # desktop environment
     sway-launcher-desktop
+
+    # custom scripts
+    (writeShellScriptBin "preheat" (builtins.readFile ../scripts/preheat.sh))
   ];
 }
