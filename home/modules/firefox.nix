@@ -8,7 +8,10 @@
       isDefault = true;
       extensions =
         with pkgs.nur.repos.rycee.firefox-addons; [
+          # Note: Need to apply Catppuccin Firefox Color theme (Lavender) manually. It will stick afterwards.
+          firefox-color
           onepassword-password-manager
+          ublock-origin
           vimium
           # Everhour
           (buildFirefoxXpiAddon {
@@ -23,8 +26,6 @@
               platforms = lib.platforms.all;
             };
           })
-          # Note: Need to apply Catppuccin Firefox Color theme (Lavender) manually. It will stick afterwards.
-          firefox-color
         ];
       settings = {
         "app.normandy.first_run" = false;
