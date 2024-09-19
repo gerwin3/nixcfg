@@ -64,6 +64,8 @@
         "browser.urlbar.suggest.quicksuggest.sponsored" = false;
         "browser.urlbar.suggest.topsites" = false;
         "browser.warnOnQuit" = false;
+        "cookiebanners.service.mode" = 1;
+        "cookiebanners.service.mode.privateBrowsing" = 1;
         "cookiebanners.ui.desktop.enabled" = true;
         "datareporting.healthreport.uploadEnabled" = false;
         "datareporting.policy.dataSubmissionEnabled" = false;
