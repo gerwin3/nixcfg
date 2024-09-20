@@ -87,6 +87,9 @@
         "extensions.pocket.showHome" = false;
         "extensions.ui.extension.hidden" = true;
         "extensions.webcompat-reporter.enabled" = false;
+        # Work-around for Google Docs and Sheets issues in Firefox.
+        # Source: https://old.reddit.com/r/firefox/comments/1egjd0s/google_docs_acting_weird/
+        "gfx.canvas.accelerated" = false;
         "identity.fxaccounts.commands.enabled" = false;
         "identity.fxaccounts.enabled" = false;
         "identity.fxaccounts.pairing.enabled" = false;
