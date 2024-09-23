@@ -7,6 +7,7 @@
       main = {
         font = if variant == "laptop" then "Iosevka Nerd Font:size=11" else "Iosevka Nerd Font:size=10";
         pad = "8x8";
+        selection-target = "clipboard";
         term = "xterm-256color";
       };
     };

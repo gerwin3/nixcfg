@@ -19,7 +19,7 @@
             version = "1.6.235";
             addonId = "time-tracker-on-site@everhour.com";
             url = "https://everhour.com/addon/firefox/everhour_time_tracker.xpi";
-            sha256 = "sha256-HE5L/QQwRLdLfrbG76Rftr1B928OFn5FvbCyXVwaByc=";
+            sha256 = "sha256-yvp7jO4KGr066nCTiit47WEdQQU1WKeTEidT83uCWCQ=";
             meta = {
               homepage = "https://everhour.com/";
               description = "Everhour integration extension";
