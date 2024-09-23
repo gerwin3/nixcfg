@@ -51,10 +51,9 @@ First, create a bootable medium from the [minimal NixOS installation image](http
     parted /dev/nvme0n1 -- mkpart ESP fat32 1MB 2048MB
     parted /dev/nvme0n1 -- set 2 esp on
 
-    # Format and mount the boot partition (from NixOS installation guide).
+    # Format and the boot partition (from NixOS installation guide).
     mkfs.fat -F 32 -n boot /dev/nvme0n1p2
     mkdir -p /mnt/boot
-    mount -o umask=077 /dev/disk/by-label/boot /mnt/boot
 
     # Format LUKS encrypted partition, and create btrfs filesystem inside it.
     cryptsetup luksFormat /dev/nvme0n1p1
@@ -64,6 +63,11 @@ First, create a bootable medium from the [minimal NixOS installation image](http
     # Create subvolumes for nix and persistence, then mount them.
     btrfs subvolume create /mnt/nix
     btrfs subvolume create /mnt/persist
+    # Unmount /mnt here since we only need /mnt/boot, /mnt/nix and /mnt/persist
+    umount /mnt
+
+    # Mount all disks
+    mount -o umask=077 /dev/disk/by-label/boot /mnt/boot
     mount -o subvol=nix /dev/mapper/root /mnt/nix
     mount -o subvol=persist /dev/mapper/root /mnt/persist
     ```
