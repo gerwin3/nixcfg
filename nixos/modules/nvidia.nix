@@ -16,5 +16,10 @@
     };
   };
 
+  boot = {
+    initrd.kernelModules = [ "nvidia" "nvidia_modeset" ];
+    kernelParams = [ "nvidia-drm.fbdev=1" ];
+  };
+
   services.xserver.videoDrivers = [ "nvidia" ];
 }
