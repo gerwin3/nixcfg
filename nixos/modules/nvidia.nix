@@ -5,6 +5,7 @@
     graphics.enable = true;
 
     nvidia = {
+      forceFullCompositionPipeline = true;
       modesetting.enable = true;
       nvidiaSettings = true;
       open = true;
@@ -18,7 +19,7 @@
 
   boot = {
     initrd.kernelModules = [ "nvidia" "nvidia_modeset" ];
-    kernelParams = [ "nvidia-drm.fbdev=1" ];
+    extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
   };
 
   services.xserver.videoDrivers = [ "nvidia" ];
