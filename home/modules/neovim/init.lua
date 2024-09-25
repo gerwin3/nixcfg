@@ -378,6 +378,9 @@ require("lazy").setup({
     }
   },
 
+  -- highlight word under cursor
+  "RRethy/vim-illuminate",
+
   -- registers
   {
     "tversteeg/registers.nvim",
