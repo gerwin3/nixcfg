@@ -276,13 +276,14 @@ require("lazy").setup({
         }
       })
       lsp_zero.configure("taplo", {})
-      -- TODO: This has no effect for some reason.
       lsp_zero.configure("zls", {
         settings = {
           ["zls"] = {
             build_on_save_step = "check",
             enable_ast_check_diagnostics = true,
             enable_autofix = true,
+            -- TODO: This has no effect for some reason. It may be that none of
+            -- these options have effect actually.
             enable_build_on_save = true,
             enable_inlay_hints = true,
             enable_snippets = true,
