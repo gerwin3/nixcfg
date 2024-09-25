@@ -445,14 +445,15 @@ require("lazy").setup({
     end
   },
 
-  -- quick navigation
+  -- substitute
   {
-    "ggandor/leap.nvim",
+    "gbprod/substitute.nvim",
     config = function()
-      local leap = require("leap")
-      leap.add_default_mappings(true)
-      vim.keymap.del({ "x", "o" }, "x")
-      vim.keymap.del({ "x", "o" }, "X")
+      local substitute = require("substitute")
+      vim.keymap.set("n", "s", substitute.operator, { noremap = true })
+      vim.keymap.set("n", "ss", substitute.line, { noremap = true })
+      vim.keymap.set("n", "S", substitute.eol, { noremap = true })
+      vim.keymap.set("x", "s", substitute.visual, { noremap = true })
     end
   },
 
