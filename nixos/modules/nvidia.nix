@@ -16,7 +16,10 @@
       modesetting.enable = true;
 
       nvidiaSettings = true;
-      open = true;
+
+      # NOTE: Disabled for now since I am having issues.
+      # open = true;
+
       package = config.boot.kernelPackages.nvidiaPackages.latest;
       powerManagement = {
         enable = false;
