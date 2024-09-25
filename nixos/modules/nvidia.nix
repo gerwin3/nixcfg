@@ -14,12 +14,7 @@
       modesetting.enable = true;
       nvidiaSettings = true;
       open = true;
-
-      # TODO: Now on stable because on latest KMS does not work which causes
-      # other issues in Sway etc.
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
-      # package = config.boot.kernelPackages.nvidiaPackages.latest;
-
+      package = config.boot.kernelPackages.nvidiaPackages.latest;
       powerManagement = {
         enable = false;
         finegrained = false;

@@ -4,7 +4,10 @@
   boot = {
     extraModulePackages = [ ];
     kernelModules = [ "kvm-amd" ];
-    kernelPackages = pkgs.linuxPackages_latest;
+    # TODO: Temporarily holding back on 6.11 because of an issue with NVIDIA
+    # modesetting which makes everything break. See this Arch wiki thread:
+    # https://bbs.archlinux.org/viewtopic.php?id=299450
+    kernelPackages = pkgs.linuxPackages_6_10;
     loader.efi.canTouchEfiVariables = true;
     initrd = {
       availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];

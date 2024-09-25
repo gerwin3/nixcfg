@@ -19,6 +19,7 @@ This will apply the configuration, as well as updating the lock file.
 ## Known Issues
 
 * Flickering on Sway with NVIDIA: Sway's latest release is based on wlroots 0.17 which does not have explicit sync support. This will be fixed in the next Sway release which will be based on wlroots 0.19 (0.18 and above have explicit sync).
+* Holding back on Linux kernel 6.11 for the moment because there is a compatibility issue with the NVIDIA driver breaking KMS. Without KMS Sway does not work properly.
 
 ## Installation
 
