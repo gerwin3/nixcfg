@@ -48,6 +48,7 @@ vim.keymap.set("n", "<ScrollWheelDown>", "j")
 vim.keymap.set("n", "<ScrollWheelUp>", "k")
 vim.keymap.set("n", "<A-J>", ":silent! move +1<CR>")
 vim.keymap.set("n", "<A-K>", ":silent! move -2<CR>")
+vim.keymap.set("n", "<leader>rn", ":IncRename ")
 ---- keybinds for rust
 vim.keymap.set("n", "<leader><C-b>", ":!cargo build<CR>");
 vim.keymap.set("n", "<leader><C-r>", ":!cargo run<CR>");
