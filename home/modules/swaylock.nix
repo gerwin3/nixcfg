@@ -1,4 +1,4 @@
-{ ... }:
+{ variant, ... }:
 
 {
   programs.swaylock = {
@@ -18,8 +18,7 @@
         caps-lock-bs-hl-color = "${red}";
         caps-lock-key-hl-color = "${fg}";
         font = "Iosevka Nerd Font";
-        # TODO: fix on laptop
-        font-size = 16;
+        font-size = if variant == "laptop" then 32 else 16;
         indicator-idle-visible = false;
         indicator-radius = 72;
         indicator-thickness = 36;

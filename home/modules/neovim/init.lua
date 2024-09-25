@@ -274,19 +274,18 @@ require("lazy").setup({
       })
       lsp_zero.configure("taplo", {})
       lsp_zero.configure("zls", {
+        -- TODO: zls
         settings = {
-          ["zls"] = {
-            build_on_save_step = "check",
-            enable_ast_check_diagnostics = true,
-            enable_autofix = true,
-            -- TODO: This has no effect for some reason. It may be that none of
-            -- these options have effect actually.
-            enable_build_on_save = true,
-            enable_inlay_hints = true,
-            enable_snippets = true,
-            inlay_hints_hide_redundant_param_names = true,
-            inlay_hints_hide_redundant_param_names_last_token = true,
-          },
+          -- TODO: This has no effect for some reason. It may be that none of
+          -- these options have effect actually.
+          build_on_save_step = "check",
+          enable_ast_check_diagnostics = true,
+          enable_autofix = true,
+          enable_build_on_save = true,
+          enable_inlay_hints = true,
+          enable_snippets = true,
+          inlay_hints_hide_redundant_param_names = true,
+          inlay_hints_hide_redundant_param_names_last_token = true,
         },
       })
     end
