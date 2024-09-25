@@ -3,6 +3,7 @@
 {
   imports = [
     modules/bash.nix
+    modules/catppuccin.nix
     modules/direnv.nix
     modules/firefox.nix
     modules/fonts.nix
@@ -34,6 +35,4 @@
   services.gnome-keyring.enable = true;
 
   systemd.user.startServices = "sd-switch";
-
-  catppuccin.flavor = "mocha";
 }
