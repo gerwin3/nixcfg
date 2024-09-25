@@ -381,6 +381,14 @@ require("lazy").setup({
   -- highlight word under cursor
   "RRethy/vim-illuminate",
 
+  -- incremental rename
+  {
+    "smjonas/inc-rename.nvim",
+    config = function()
+      require("inc_rename").setup()
+    end,
+  },
+
   -- registers
   {
     "tversteeg/registers.nvim",
