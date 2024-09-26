@@ -22,7 +22,6 @@
     jq
 
     # system usage monitoring
-    btop
     iotop
     iftop
 

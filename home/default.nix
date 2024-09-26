@@ -3,6 +3,7 @@
 {
   imports = [
     modules/bash.nix
+    modules/btop.nix
     modules/catppuccin.nix
     modules/direnv.nix
     modules/firefox.nix
