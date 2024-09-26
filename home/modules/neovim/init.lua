@@ -233,9 +233,6 @@ require("lazy").setup({
         function(client, bufnr)
           -- Disable semantic LSP highlighting (I think it sucks)
           client.server_capabilities.semanticTokensProvider = nil
-          -- Enable inlay hints if supported by LSP.
-          vim.lsp.inlay_hint.enable(true, {0})
-          -- Autoformat buffer on save.
           lsp_zero.buffer_autoformat()
           lsp_zero.default_keymaps({ buffer = bufnr })
           vim.keymap.set("n", "ga", vim.lsp.buf.code_action, { noremap = true, silent = true })
