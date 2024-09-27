@@ -4,8 +4,10 @@
   programs.ncspot = {
     enable = true;
     settings = {
-      use_nerdfont = true;
       library_tabs = [ "playlists" ];
+      repeat = "playlist";
+      shuffle = true;
+      use_nerdfont = true;
       # Use this handy tool to make the theme:
       # https://ncspot-theme-generator.vaa.red/
       theme = {
