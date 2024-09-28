@@ -44,5 +44,18 @@
 
   networking.useDHCP = lib.mkDefault true;
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+
+  # Took these battery settings from here:
+  # > https://kirarin.hootr.club/git/steinuil/flakes/src/branch/master/hosts/starry/hardware.nix
+  # Note that the source also contained configuration for something called
+  # "tlp" but it conflicted with power-profiles-daemon which is somehow enabled
+  # (probably from nixos-hardware). So I only kept the powerManagement section.
+
+  powerManagement = {
+    enable = true;
+    cpuFreqGovernor = "powersave";
+    powertop.enable = true;
+  };
+
   swapDevices = [ ];
 }
