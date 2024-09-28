@@ -6,9 +6,13 @@
     userName = "Gerwin van der Lugt";
     userEmail = "account+git@gerwin3.com";
     extraConfig = {
-      init.defaultBranch = "main";
+      commit.verbose = true;
       core.editor = "vim";
+      diff.algorithm = "histogram";
+      fetch.prune = true;
+      init.defaultBranch = "main";
       push.autoSetupRemote = true;
+      rerere.enabled = true;
     };
   };
 }
