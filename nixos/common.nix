@@ -12,7 +12,6 @@
     modules/locale.nix
     modules/networking.nix
     modules/nix.nix
-    modules/nvidia.nix
     modules/persistence.nix
     modules/pipewire.nix
     modules/printing.nix
