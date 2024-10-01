@@ -18,6 +18,7 @@
     modules/neovim
     modules/nix.nix
     modules/packages.nix
+    modules/scripts.nix
     modules/sway.nix
     modules/swaylock.nix
     modules/waybar.nix
