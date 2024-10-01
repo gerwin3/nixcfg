@@ -22,7 +22,7 @@ git worktree prune
 
 if [ -z "${1}" ]; then 
   # Select branch using fzf.
-  branch=$(git for-each-ref --format='%(refname:short)' refs/heads/ | fzf) || return
+  branch=$(git for-each-ref --format='%(refname:short)' refs/heads/ | fzf) || exit 1
   branch=$(echo "${branch}" | tr -d '[:space:]')
 else 
   branch="${1}"
