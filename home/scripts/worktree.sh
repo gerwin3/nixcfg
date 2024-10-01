@@ -13,7 +13,7 @@ set -x
 tree_dir="${HOME}/tree"
 
 if [[ ! -d "./.git" ]]; then
-  echo "error: not a git repository"
+  echo "error: not a git repository" >&2
   exit 1
 fi
 
@@ -35,7 +35,7 @@ dest_dir="${tree_dir}/${branch_dirname}"
 # skip this step and simply cd into it after.
 if [ ! -d "${dest_dir}" ]; then
   mkdir -p "${dest_dir}"
-  git worktree add "${dest_dir}" "${branch}"
+  git worktree add "${dest_dir}" "${branch}" >&2
 fi
 
-cd "${dest_dir}"
+echo "${dest_dir}"

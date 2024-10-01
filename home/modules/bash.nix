@@ -60,6 +60,7 @@
       copy = "wl-copy";
       grep = "grep --color=auto";
       htop = "btop";
+      tree = "cd $(worktree)";
     };
     shellOptions = [
       "autocd"
