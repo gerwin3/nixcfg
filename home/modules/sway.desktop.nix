@@ -4,20 +4,8 @@
   wayland.windowManager.sway = {
     config = {
       output = {
-        #      0000   1920     5760       9600
-        #        │      │        │          │
-        #        │      ▼        ▼          │
-        # 0000   │      ┌────────┐          │
-        #        ▼      │        │          ▼
-        # 0960 ─►┌──────┤        ├──────────┐
-        #        │ HDMI │        │          │
-        # 2040 ─►└──────┤  DP-1  │   DP-2   │
-        #               │        │          │
-        # 3120 ────────►│        ├──────────┘
-        #               │        │
-        #               └────────┘
         "HDMI-A-1" = {
-          pos = "0 960";
+          pos = "0 420";
           bg = "${../resources/background-horizontal.png} fill";
         };
         "DP-1" = {
@@ -27,7 +15,7 @@
           bg = "${../resources/background-vertical.png} fill";
         };
         "DP-2" = {
-          pos = "5760 960";
+          pos = "3000 440";
           scale = "2";
           bg = "${../resources/background-horizontal.png} fill";
         };
@@ -66,6 +54,11 @@
           "l" = "move container to workspace 9; workspace 9; mode default";
           "Semicolon" = "move container to workspace 10; workspace 10; mode default";
           "Escape" = "mode default";
+        };
+      };
+      seat = {
+        "*" = {
+          xcursor_theme = "Adwaita 24";
         };
       };
       workspaceOutputAssign = [
