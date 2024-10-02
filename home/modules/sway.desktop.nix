@@ -16,14 +16,14 @@
         # 3120 ────────►│        ├──────────┘
         #               │        │
         #               └────────┘
-        "HDMI-1-A" = {
+        "HDMI-A-1" = {
           pos = "0 960";
           bg = "${../resources/background-horizontal.png} fill";
         };
         "DP-1" = {
           pos = "1920 0";
           scale = "2";
-          transform = "90";
+          transform = "270";
           bg = "${../resources/background-vertical.png} fill";
         };
         "DP-2" = {
