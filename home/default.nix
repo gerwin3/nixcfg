@@ -15,7 +15,7 @@
     modules/gtk.nix
     modules/matterhorn.nix
     modules/ncspot.nix
-    modules/neovim
+    modules/neovim.nix
     modules/nix.nix
     modules/packages.nix
     modules/scripts.nix
