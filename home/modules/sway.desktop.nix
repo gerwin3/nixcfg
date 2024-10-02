@@ -22,11 +22,13 @@
         };
         "DP-1" = {
           pos = "1920 0";
+          scale = "2";
           transform = "90";
           bg = "${../resources/background-vertical.png} fill";
         };
         "DP-2" = {
           pos = "5760 960";
+          scale = "2";
           bg = "${../resources/background-horizontal.png} fill";
         };
       };
