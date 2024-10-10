@@ -1,12 +1,17 @@
 { pkgs, ... }:
 
 {
-  fonts.packages = with pkgs; [
-    noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
-    (nerdfonts.override { fonts = [ "Iosevka" ]; })
-  ];
+  fonts.packages =
+    let
+      berkeley-mono = (import ./berkeley-mono.nix) pkgs;
+    in
+    with pkgs; [
+      noto-fonts
+      noto-fonts-cjk
+      noto-fonts-emoji
+      (nerdfonts.override { fonts = [ "Iosevka" ]; })
+      berkeley-mono
+    ];
 
   fonts.fontconfig = {
     enable = true;
