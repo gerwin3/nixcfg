@@ -14,7 +14,7 @@
     };
   };
 
-  # This section configures Asahi and needs some special attentions, since most
+  # This section configures Asahi and needs some special attention, since most
   # of it requires the firmware to be present. Since the firmware is not yet
   # there during installation, the "hardware" section should be entirely
   # commented out during installation, and then reverted later.
