@@ -5,7 +5,7 @@
     enable = true;
     settings = {
       main = {
-        font = if variant == "laptop" then "Iosevka Nerd Font:size=11" else "Iosevka Nerd Font:size=10";
+        font = if variant == "laptop" then "Berkeley Mono:size=10" else "Berkeley Mono:size=9";
         pad = "8x8";
         # Had this enable previously because it causes foot to copy stuff into
         # the clipboard correctly. Unfortunately, it also breaks copying stuff
