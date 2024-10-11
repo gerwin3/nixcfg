@@ -15,7 +15,7 @@
       {
         modifier = mod;
         fonts = {
-          names = [ "Iosevka Nerd Font" ];
+          names = [ "BerkeleyMono Nerd Font" ];
           size = 14.0;
         };
         bars = [{ command = "waybar"; }];

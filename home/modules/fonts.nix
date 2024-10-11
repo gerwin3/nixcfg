@@ -7,11 +7,11 @@
     in
     with pkgs; [
       fontconfig
-      (nerdfonts.override { fonts = [ "Iosevka" ]; })
       berkeley-mono
+      inter
     ];
 
   fonts.fontconfig.enable = true;
 
-  gtk.font.name = "Iosevka Nerd Font 11";
+  gtk.font.name = "Inter 11";
 }

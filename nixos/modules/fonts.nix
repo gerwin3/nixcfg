@@ -6,18 +6,19 @@
       berkeley-mono = (import ./berkeley-mono.nix) pkgs;
     in
     with pkgs; [
+      berkeley-mono
+      inter
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
-      (nerdfonts.override { fonts = [ "Iosevka" ]; })
-      berkeley-mono
     ];
 
   fonts.fontconfig = {
     enable = true;
     defaultFonts = {
-      serif = [ "Iosevka Nerd Font" "Noto Serif" ];
-      sansSerif = [ "Iosevka Nerd Font" "Noto Sans" ];
+      serif = [ "Inter" "Noto Serif" ];
+      sansSerif = [ "Inter" "Noto Sans" ];
+      monospace = [ "BerkeleyMono Nerd Font" "Noto Mono" ];
       emoji = [ "Noto Color Emoji" ];
     };
   };

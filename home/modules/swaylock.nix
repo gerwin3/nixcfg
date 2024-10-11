@@ -17,7 +17,7 @@
         bs-hl-color = "${red}";
         caps-lock-bs-hl-color = "${red}";
         caps-lock-key-hl-color = "${fg}";
-        font = "Iosevka Nerd Font";
+        font = "BerkeleyMono Nerd Font";
         font-size = 32;
         indicator-idle-visible = false;
         indicator-radius = 72;

@@ -9,7 +9,7 @@ vim.o.cmdheight = 0
 
 -- neovide --
 if vim.g.neovide then
-  vim.o.guifont = "Iosevka Nerd Font:h14"
+  vim.o.guifont = "BerkeleyMono Nerd Font:h14"
   vim.g.neovide_floating_blur_amount_x = 2.0
   vim.g.neovide_floating_blur_amount_y = 2.0
   vim.g.neovide_scroll_animation_length = 0.1

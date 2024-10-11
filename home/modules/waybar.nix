@@ -52,7 +52,7 @@
       * {
         border-radius: 0px;
         color: @text;
-        font-family: "Iosevka Nerd Font";
+        font-family: "BerkeleyMono Nerd Font";
         margin: 0px;
         padding: 0px;
         transition-duration: 0s;
