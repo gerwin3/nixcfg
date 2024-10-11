@@ -27,7 +27,21 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
-          { nixpkgs.overlays = [ inputs.nur.overlay ]; }
+          {
+            nixpkgs.overlays = [
+              inputs.nur.overlay
+              # FIXME: Overlay sway so we get the latest master version which
+              # fixes the tearing issue.
+              (self: super: {
+                sway = super.sway.overrideAttrs (old: {
+                  src = builtins.fetchGit {
+                    url = "https://github.com/swaywm/sway.git";
+                    rev = "7f1cd0b73ba3290f8ee5f81fdf7f1ffa4c642ea7";
+                  };
+                });
+              })
+            ];
+          }
           ./nixos/desktop.nix
           inputs.impermanence.nixosModules.impermanence
           inputs.home-manager.nixosModules.home-manager
