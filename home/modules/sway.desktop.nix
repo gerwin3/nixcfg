@@ -6,6 +6,7 @@
       output = {
         "DP-1" = {
           pos = "0 420";
+          scale = "2";
           bg = "${../resources/background-horizontal.png} fill";
         };
         "DP-2" = {
