@@ -41,11 +41,18 @@
       color3="\[$(tput setaf 147)\]"
       gray="\[$(tput setaf 8)\]"
       reset="\[$(tput sgr0)\]"
-      # custom prompt
-      if [[ "$DISPLAY" == ":0" ]]
-      then
-          export PS1="''${color1}\t ''${color2}\h''${reset}:''${color3}\W''${gray}''${reset} > "
-      fi
+      __prompt_update() {
+        if [[ "$DISPLAY" == ":0" ]]; then
+            if [[ -n "''${IN_NIX_SHELL}" ]]; then
+              prompt_symbol="▶"
+            else
+              prompt_symbol=">"
+            fi
+            export PS1="''${color1}\t ''${color2}\h''${reset}:''${color3}\W''${gray}''${reset} ''${prompt_symbol} "
+        fi
+      }
+      PROMPT_COMMAND="''${PROMPT_COMMAND:+$PROMPT_COMMAND; }__prompt_update"
+
       # Print newline before prompt except on first prompt.
       __prompt_newline() {
         if [[ -z "''${PROMPT_FIRST_TIME}" ]]; then
@@ -55,6 +62,21 @@
         fi
       }
       PROMPT_COMMAND="''${PROMPT_COMMAND:+$PROMPT_COMMAND; }__prompt_newline"
+
+      # Automatically load nix development shells the caveman way.
+      __auto_develop() {
+        if [[ "''${PWD}" == /home/gerwin/code/* ]]; then
+          if [[ -f "''${PWD}/flake.nix" ]]; then
+            if [[ -z "''${IN_NIX_SHELL}" ]]; then
+              if grep -q "devShells" "''${PWD}/flake.nix"; then
+                nix develop
+                printf '\n'
+              fi
+            fi
+          fi
+        fi
+      }
+      PROMPT_COMMAND="''${PROMPT_COMMAND:+$PROMPT_COMMAND; }__auto_develop"
     '';
     shellAliases = {
       copy = "wl-copy";
