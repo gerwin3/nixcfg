@@ -36,6 +36,11 @@ vim.o.wrap = true
 ---- wrap around after search EOF
 vim.o.wrapscan = true
 
+-- folding
+vim.o.foldenable = false
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+
 -- keybinds
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>w", "<C-w>")
@@ -138,6 +143,46 @@ require("lazy").setup({
       vim.cmd([[colorscheme catppuccin]])
     end
   },
+
+  -- syntax highlighting
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    config = function ()
+      require("nvim-treesitter.configs").setup({
+        highlight = { enable = true },
+        indent = { enable = true },
+        ensure_installed = {
+          "bash",
+          "c",
+          "diff",
+          "html",
+          "javascript",
+          "jsdoc",
+          "json",
+          "jsonc",
+          "lua",
+          "luadoc",
+          "luap",
+          "markdown",
+          "markdown_inline",
+          "printf",
+          "python",
+          "query",
+          "regex",
+          "rust",
+          "toml",
+          "tsx",
+          "typescript",
+          "vim",
+          "vimdoc",
+          "xml",
+          "yaml",
+          "zig",
+        },
+      })
+    end
+  }, 
 
   -- tabline
   {
