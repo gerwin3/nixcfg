@@ -3,24 +3,6 @@
 {
   programs.ncspot = {
     enable = true;
-    # TODO: Does not work.
-    # # FIXME: Temporarily overriding ncspot to use main since it has a fix for
-    # # not being able to login. Issue is tracked here:
-    # # https://github.com/hrkfdn/ncspot/issues/1500
-    # package = pkgs.ncspot.override (prev: {
-    #   rustPlatform = prev.rustPlatform // {
-    #     buildRustPackage = args: prev.rustPlatform.buildRustPackage (args // {
-    #       version = "1.1.3-dev";
-    #       src = pkgs.fetchFromGitHub {
-    #         owner = "hrkfdn";
-    #         repo = "ncspot";
-    #         rev = "f40b36741c4e3db4c50d6f055b0ad227bb3a7bfe";
-    #         hash = "sha256-9HDMdd6qR/n0+cpPMi0qYcwr590gn/D5K0cXn0xeP1s=";
-    #       };
-    #       cargoHash = "";
-    #     });
-    #   };
-    # });
     settings = {
       library_tabs = [ "playlists" ];
       repeat = "playlist";
