@@ -18,6 +18,8 @@ if vim.g.neovide then
 end
 
 -- line numbering
+vim.o.number = true
+vim.o.relativenumber = false
 vim.o.signcolumn = "number"
 
 -- indenting
