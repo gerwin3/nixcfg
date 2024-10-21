@@ -16,6 +16,14 @@
       ## TOML
       taplo
     ];
+    # Copilot needs nodejs to be in PATH. For more info see:
+    # https://github.com/NixOS/nixpkgs/issues/349496
+    extraWrapperArgs = [
+      "--suffix"
+      "PATH"
+      ":"
+      (lib.makeBinPath [ pkgs.nodejs ])
+    ];
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
