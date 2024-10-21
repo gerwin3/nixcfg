@@ -65,7 +65,7 @@
 
       # Automatically load nix development shells the caveman way.
       __auto_develop() {
-        if [[ "''${PWD}" == /home/gerwin/{code,tree}/* ]]; then
+        if [[ "''${PWD}" == /home/gerwin/code/* ]] || [[ "''${PWD}" == /home/gerwin/tree/* ]]; then
           if [[ -f "''${PWD}/flake.nix" ]]; then
             if [[ -z "''${IN_NIX_SHELL}" ]]; then
               if grep -q "devShells" "''${PWD}/flake.nix"; then
