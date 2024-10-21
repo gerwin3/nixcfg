@@ -30,7 +30,7 @@
           {
             nixpkgs.overlays = [
               inputs.nur.overlay
-              # FIXME: Temporarily overlay sway and wlroots so we get the latest
+              # TODO: Temporarily overlay sway and wlroots so we get the latest
               # master version which fixes the tearing issue, until Sway 1.10 is
               # released. Took this excellent overlay from here:
               # https://github.com/lovesegfault/nix-config/blob/c6bff2fde78b7b68d143bb78886e73b68b6eb0c0/nix/overlays/sway-unstable.nix

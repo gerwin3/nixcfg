@@ -1,11 +1,6 @@
 { pkgs, ... }:
 
 {
-  # TODO: Switch to master branch of Sway. This may fix flickering on desktop
-  # since the master branch has a newer wl-roots version that has fixes for it.
-  # Would need to do some overlay tricks or something. Probably will do this
-  # once I get really annoyed by the flickering.
-
   wayland.windowManager.sway = {
     enable = true;
     config =
