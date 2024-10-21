@@ -82,7 +82,7 @@
       copy = "wl-copy";
       grep = "grep --color=auto";
       htop = "btop";
-      tree = "cd $(worktree)";
+      work = "cd $(worktree)";
     };
     shellOptions = [
       "autocd"
