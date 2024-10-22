@@ -21,6 +21,9 @@
             xkb_numlock = "enabled";
           };
         };
+        output = {
+          "*".bg = "${../resources/background-horizontal.png} fill";
+        };
         keybindings = {
           # -- General --
 
