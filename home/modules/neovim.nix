@@ -18,6 +18,8 @@
     ];
     # Copilot needs nodejs to be in PATH. For more info see:
     # https://github.com/NixOS/nixpkgs/issues/349496
+    # TODO: This can be removed once this PR is merged:
+    # https://github.com/NixOS/nixpkgs/pull/350345
     extraWrapperArgs = [
       "--suffix"
       "PATH"
