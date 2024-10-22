@@ -66,6 +66,7 @@
           "${mod}+8" = "workspace 8";
           "${mod}+9" = "workspace 9";
           "${mod}+0" = "workspace 10";
+          "${mod}+Semicolon" = "workspace 10";
 
           "${mod}+Ctrl+h" = "resize shrink width 10 px or 10 ppt";
           "${mod}+Ctrl+j" = "resize grow height 10 px or 10 ppt";
