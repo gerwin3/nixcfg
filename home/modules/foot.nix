@@ -16,4 +16,6 @@
     };
     catppuccin.enable = true;
   };
+
+  home.sessionVariables.TERMINAL = "foot";
 }
