@@ -53,8 +53,8 @@
                   src = final.fetchFromGitHub {
                     owner = "swaywm";
                     repo = "sway";
-                    rev = "b44015578a3d53cdd9436850202d4405696c1f52";
-                    hash = "sha256-gTsZWtvyEMMgR4vj7Ef+nb+wcXkwGivGfnhnBIfPHOA=";
+                    rev = "db76fefd0c61d2c85f448eeb43ca3a97c10770a5";
+                    hash = "";
                   };
                   nativeBuildInputs = with final; (old.nativeBuildInputs or [ ]) ++ [ bash-completion fish ];
                   mesonFlags = builtins.filter
