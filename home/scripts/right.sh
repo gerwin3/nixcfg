@@ -2,6 +2,7 @@
 
 # Starts mattermost and ncspot, nicely tiled on workspace 10.
 
+sleep 1
 swaymsg 'workspace 10; split h; exec --no-startup-id foot matterhorn'
 sleep 0.5
 swaymsg 'exec --no-startup-id foot ncspot'
