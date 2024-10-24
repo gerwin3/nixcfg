@@ -36,25 +36,25 @@
               # https://github.com/lovesegfault/nix-config/blob/c6bff2fde78b7b68d143bb78886e73b68b6eb0c0/nix/overlays/sway-unstable.nix
               (final: prev: {
                 wlroots-unstable = (final.wlroots_0_17.overrideAttrs (old: {
-                  version = "unstable-2024-08-13";
+                  version = "unstable-2024-20-24";
                   src = final.fetchFromGitLab {
                     domain = "gitlab.freedesktop.org";
                     owner = "wlroots";
                     repo = "wlroots";
-                    rev = "2c64f36e8886d1f26daeb2a4ee79f3f9dd3d4c85";
-                    hash = "sha256-elHu3d82STGB+pTGPj1K9eOyWGsotqUX4e0ZQ+db4Rg=";
+                    rev = "da8f7a07ba8c0767ffca134f871339cc475d5839";
+                    hash = "sha256-zBRb+XGpCJJawhoZxDxzIKj9fmWimjDsUD1kQIfSe2s=";
                   };
                   buildInputs = (old.buildInputs or [ ]) ++ [
                     final.lcms2
                   ];
                 })).override { };
                 sway-unwrapped = (prev.sway-unwrapped.overrideAttrs (old: {
-                  version = "unstable-2024-08-11";
+                  version = "unstable-2024-20-24";
                   src = final.fetchFromGitHub {
                     owner = "swaywm";
                     repo = "sway";
-                    rev = "db76fefd0c61d2c85f448eeb43ca3a97c10770a5";
-                    hash = "";
+                    rev = "a63027245a6805bb952e47c5751ecdd7d1063d2f";
+                    hash = "sha256-CZS0IgN8aKJw66l1kjEvRY9HL6LHJdGTTbyKgRfGNdo=";
                   };
                   nativeBuildInputs = with final; (old.nativeBuildInputs or [ ]) ++ [ bash-completion fish ];
                   mesonFlags = builtins.filter
