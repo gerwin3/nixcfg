@@ -1,4 +1,9 @@
-{ lib, config, pkgs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 
 {
   boot = {
@@ -7,7 +12,15 @@
     kernelPackages = pkgs.linuxPackages_latest;
     loader.efi.canTouchEfiVariables = true;
     initrd = {
-      availableKernelModules = [ "xhci_pci" "thunderbolt" "vmd" "nvme" "usb_storage" "sd_mod" "sr_mod" ];
+      availableKernelModules = [
+        "xhci_pci"
+        "thunderbolt"
+        "vmd"
+        "nvme"
+        "usb_storage"
+        "sd_mod"
+        "sr_mod"
+      ];
       kernelModules = [ ];
     };
   };

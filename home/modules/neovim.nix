@@ -12,7 +12,7 @@
       # Language servers and formatters
       ## Nix
       nil
-      nixpkgs-fmt
+      nixfmt-rfc-style
       ## TOML
       taplo
     ];

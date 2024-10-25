@@ -1,30 +1,31 @@
 { lib, variant, ... }:
 
 {
-  imports = [
-    modules/bash.nix
-    modules/btop.nix
-    modules/catppuccin.nix
-    modules/direnv.nix
-    modules/firefox.nix
-    modules/fonts.nix
-    modules/foot.nix
-    modules/fzf.nix
-    modules/gh-dash.nix
-    modules/git.nix
-    modules/gtk.nix
-    modules/matterhorn.nix
-    modules/ncspot.nix
-    modules/neovim.nix
-    modules/nix.nix
-    modules/packages.nix
-    modules/scripts.nix
-    modules/sway.nix
-    modules/swaylock.nix
-    modules/waybar.nix
-  ]
-  ++ (lib.optional (variant == "desktop") modules/sway.desktop.nix)
-  ++ (lib.optional (variant == "laptop") modules/sway.laptop.nix);
+  imports =
+    [
+      modules/bash.nix
+      modules/btop.nix
+      modules/catppuccin.nix
+      modules/direnv.nix
+      modules/firefox.nix
+      modules/fonts.nix
+      modules/foot.nix
+      modules/fzf.nix
+      modules/gh-dash.nix
+      modules/git.nix
+      modules/gtk.nix
+      modules/matterhorn.nix
+      modules/ncspot.nix
+      modules/neovim.nix
+      modules/nix.nix
+      modules/packages.nix
+      modules/scripts.nix
+      modules/sway.nix
+      modules/swaylock.nix
+      modules/waybar.nix
+    ]
+    ++ (lib.optional (variant == "desktop") modules/sway.desktop.nix)
+    ++ (lib.optional (variant == "laptop") modules/sway.laptop.nix);
 
   home = {
     username = "gerwin";

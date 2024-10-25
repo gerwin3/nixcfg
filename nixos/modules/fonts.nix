@@ -5,7 +5,8 @@
     let
       berkeley-mono = (import ./berkeley-mono.nix) pkgs;
     in
-    with pkgs; [
+    with pkgs;
+    [
       berkeley-mono
       inter
       noto-fonts
@@ -16,9 +17,18 @@
   fonts.fontconfig = {
     enable = true;
     defaultFonts = {
-      serif = [ "Inter" "Noto Serif" ];
-      sansSerif = [ "Inter" "Noto Sans" ];
-      monospace = [ "BerkeleyMono Nerd Font" "Noto Mono" ];
+      serif = [
+        "Inter"
+        "Noto Serif"
+      ];
+      sansSerif = [
+        "Inter"
+        "Noto Sans"
+      ];
+      monospace = [
+        "BerkeleyMono Nerd Font"
+        "Noto Mono"
+      ];
       emoji = [ "Noto Color Emoji" ];
     };
   };

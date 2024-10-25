@@ -295,7 +295,7 @@ require("lazy").setup({
         settings = {
           ["nil"] = {
             formatting = {
-              command = { "nixpkgs-fmt" },
+              command = { "nixfmt" },
             },
           }
         }

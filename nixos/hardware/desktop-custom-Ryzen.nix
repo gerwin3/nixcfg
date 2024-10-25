@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   boot = {
@@ -7,7 +12,14 @@
     kernelPackages = pkgs.linuxPackages_latest;
     loader.efi.canTouchEfiVariables = true;
     initrd = {
-      availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
+      availableKernelModules = [
+        "nvme"
+        "xhci_pci"
+        "ahci"
+        "usb_storage"
+        "usbhid"
+        "sd_mod"
+      ];
       kernelModules = [ ];
       luks.devices."root".device = "/dev/disk/by-uuid/f6567372-7007-4bed-9961-d6ddae3738c1";
     };
@@ -18,7 +30,11 @@
   fileSystems."/" = {
     device = "none";
     fsType = "tmpfs";
-    options = [ "defaults" "size=25G" "mode=755" ];
+    options = [
+      "defaults"
+      "size=25G"
+      "mode=755"
+    ];
     neededForBoot = true;
   };
 
@@ -39,7 +55,10 @@
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/2C9D-AE2E";
     fsType = "vfat";
-    options = [ "fmask=0022" "dmask=0022" ];
+    options = [
+      "fmask=0022"
+      "dmask=0022"
+    ];
   };
 
   networking.useDHCP = lib.mkDefault true;

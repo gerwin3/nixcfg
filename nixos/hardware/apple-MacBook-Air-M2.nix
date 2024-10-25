@@ -36,7 +36,11 @@
   fileSystems."/" = {
     device = "none";
     fsType = "tmpfs";
-    options = [ "defaults" "size=25G" "mode=755" ];
+    options = [
+      "defaults"
+      "size=25G"
+      "mode=755"
+    ];
     neededForBoot = true;
   };
 

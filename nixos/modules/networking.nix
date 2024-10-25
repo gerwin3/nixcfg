@@ -6,4 +6,3 @@
     firewall.enable = false;
   };
 }
-

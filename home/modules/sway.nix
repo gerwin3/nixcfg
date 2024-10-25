@@ -13,7 +13,7 @@
           names = [ "BerkeleyMono Nerd Font" ];
           size = 14.0;
         };
-        bars = [{ command = "waybar"; }];
+        bars = [ { command = "waybar"; } ];
         input = {
           "*" = {
             repeat_rate = "25";
@@ -92,12 +92,9 @@
 
           # -- Hardware keys --
 
-          "XF86AudioRaiseVolume" =
-            "exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+";
-          "XF86AudioLowerVolume" =
-            "exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-";
-          "XF86AudioMute" =
-            "exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+          "XF86AudioRaiseVolume" = "exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+";
+          "XF86AudioLowerVolume" = "exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-";
+          "XF86AudioMute" = "exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
         };
         defaultWorkspace = "workspace 1";
         window = {

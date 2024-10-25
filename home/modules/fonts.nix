@@ -5,7 +5,8 @@
     let
       berkeley-mono = (import ../../nixos/modules/berkeley-mono.nix) pkgs;
     in
-    with pkgs; [
+    with pkgs;
+    [
       fontconfig
       berkeley-mono
       inter

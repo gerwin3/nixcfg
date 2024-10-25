@@ -6,27 +6,26 @@
 
     profiles.default = {
       isDefault = true;
-      extensions =
-        with pkgs.nur.repos.rycee.firefox-addons; [
-          # Note: Need to apply Catppuccin Firefox Color theme (Lavender) manually. It will stick afterwards.
-          firefox-color
-          onepassword-password-manager
-          ublock-origin
-          vimium
-          # Everhour
-          (buildFirefoxXpiAddon {
-            pname = "everhour";
-            version = "1.6.235";
-            addonId = "time-tracker-on-site@everhour.com";
-            url = "https://everhour.com/addon/firefox/everhour_time_tracker.xpi";
-            sha256 = "sha256-s+S4fO1r7cabMKSN7QgN+CL6Rr2tzHXsB9LElZV8TO0=";
-            meta = {
-              homepage = "https://everhour.com/";
-              description = "Everhour integration extension";
-              platforms = lib.platforms.all;
-            };
-          })
-        ];
+      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+        # Note: Need to apply Catppuccin Firefox Color theme (Lavender) manually. It will stick afterwards.
+        firefox-color
+        onepassword-password-manager
+        ublock-origin
+        vimium
+        # Everhour
+        (buildFirefoxXpiAddon {
+          pname = "everhour";
+          version = "1.6.235";
+          addonId = "time-tracker-on-site@everhour.com";
+          url = "https://everhour.com/addon/firefox/everhour_time_tracker.xpi";
+          sha256 = "sha256-s+S4fO1r7cabMKSN7QgN+CL6Rr2tzHXsB9LElZV8TO0=";
+          meta = {
+            homepage = "https://everhour.com/";
+            description = "Everhour integration extension";
+            platforms = lib.platforms.all;
+          };
+        })
+      ];
       settings = {
         "app.normandy.first_run" = false;
         "app.shield.optoutstudies.enabled" = false;

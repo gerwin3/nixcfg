@@ -5,7 +5,10 @@
   users.users.gerwin = {
     isNormalUser = true;
     hashedPassword = builtins.readFile ../../secrets/password;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
   };
 
   security.sudo.extraRules = [
@@ -14,7 +17,10 @@
       commands = [
         {
           command = "ALL";
-          options = [ "SETENV" "NOPASSWD" ];
+          options = [
+            "SETENV"
+            "NOPASSWD"
+          ];
         }
       ];
     }

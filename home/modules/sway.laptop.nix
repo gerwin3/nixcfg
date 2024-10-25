@@ -19,7 +19,10 @@
   services.swayidle = {
     enable = true;
     events = [
-      { event = "before-sleep"; command = "swaylock"; }
+      {
+        event = "before-sleep";
+        command = "swaylock";
+      }
     ];
   };
 }

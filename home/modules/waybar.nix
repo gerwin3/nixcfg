@@ -3,51 +3,63 @@
 {
   programs.waybar = {
     enable = true;
-    settings = [{
-      layer = "top";
-      position = "top";
-      modules-left = [ "sway/workspaces" ];
-      modules-center = [ ];
-      modules-right = [ "cpu" "memory" "pulseaudio" ]
-        ++ lib.optional (variant == "laptop") "battery"
-        ++ [ "clock" ];
-      margin-top = 2;
-      margin-bottom = -6;
-      margin-left = 5;
-      margin-right = 5;
-      battery = {
-        states = {
-          warning = 30;
-          critical = 15;
+    settings = [
+      {
+        layer = "top";
+        position = "top";
+        modules-left = [ "sway/workspaces" ];
+        modules-center = [ ];
+        modules-right = [
+          "cpu"
+          "memory"
+          "pulseaudio"
+        ] ++ lib.optional (variant == "laptop") "battery" ++ [ "clock" ];
+        margin-top = 2;
+        margin-bottom = -6;
+        margin-left = 5;
+        margin-right = 5;
+        battery = {
+          states = {
+            warning = 30;
+            critical = 15;
+          };
+          format = "{icon} {capacity}%";
+          format-charging = "󰂄 {capacity}%";
+          format-alt = "{time} {icon}";
+          format-full = "󰁹 {capacity}%";
+          format-icons = [
+            "󰁺"
+            "󰁾"
+            "󰂁"
+          ];
         };
-        format = "{icon} {capacity}%";
-        format-charging = "󰂄 {capacity}%";
-        format-alt = "{time} {icon}";
-        format-full = "󰁹 {capacity}%";
-        format-icons = [ "󰁺" "󰁾" "󰂁" ];
-      };
-      clock = {
-        format = "  {:%Y-%m-%d %H:%M:%S}";
-        interval = 1;
-        tooltip-format = "{:%A, %B %d, %Y (%R)}";
-      };
-      cpu = {
-        format = "  {usage}%";
-      };
-      memory = {
-        format = "  {percentage}%";
-      };
-      pulseaudio = {
-        format = "{icon} {volume}%";
-        format-muted = " {volume}%";
-        format-icons = {
-          headphone = " ";
-          handsfree = " ";
-          headset = " ";
-          default = [ "" "" "" ];
+        clock = {
+          format = "  {:%Y-%m-%d %H:%M:%S}";
+          interval = 1;
+          tooltip-format = "{:%A, %B %d, %Y (%R)}";
         };
-      };
-    }];
+        cpu = {
+          format = "  {usage}%";
+        };
+        memory = {
+          format = "  {percentage}%";
+        };
+        pulseaudio = {
+          format = "{icon} {volume}%";
+          format-muted = " {volume}%";
+          format-icons = {
+            headphone = " ";
+            handsfree = " ";
+            headset = " ";
+            default = [
+              ""
+              ""
+              ""
+            ];
+          };
+        };
+      }
+    ];
     style = ''
       * {
         border-radius: 0px;
