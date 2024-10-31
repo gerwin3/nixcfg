@@ -12,6 +12,7 @@
       fetch.prune = true;
       init.defaultBranch = "main";
       push.autoSetupRemote = true;
+      pull.rebase = false;
       rerere.enabled = true;
     };
   };
