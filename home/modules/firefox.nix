@@ -1,31 +1,8 @@
 { lib, pkgs, ... }:
 
 {
-  programs.firefox = {
-    enable = true;
-
-    profiles.default = {
-      isDefault = true;
-      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-        # Note: Need to apply Catppuccin Firefox Color theme (Lavender) manually. It will stick afterwards.
-        firefox-color
-        onepassword-password-manager
-        ublock-origin
-        vimium
-        # Everhour
-        (buildFirefoxXpiAddon {
-          pname = "everhour";
-          version = "1.6.252";
-          addonId = "time-tracker-on-site@everhour.com";
-          url = "https://everhour.com/addon/firefox/everhour_time_tracker.xpi?v=23384609";
-          sha256 = "sha256-jukl3JT48sVnFAC1cpD5yVOPs89AiQlwgTsJHxc7ehE=";
-          meta = {
-            homepage = "https://everhour.com/";
-            description = "Everhour integration extension";
-            platforms = lib.platforms.all;
-          };
-        })
-      ];
+  programs.firefox =
+    let
       settings = {
         "app.normandy.first_run" = false;
         "app.shield.optoutstudies.enabled" = false;
@@ -118,6 +95,50 @@
         "trailhead.firstrun.didSeeAboutWelcome" = true;
         "ui.systemUsesDarkTheme" = true;
       };
+      userChromeNoUi = ''
+        @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+        #TabsToolbar { visibility: collapse; }
+        #navigator-toolbox { visibility: collapse; }
+        browser { margin-right: -14px; margin-bottom: -14px; }
+      '';
+    in
+    {
+      enable = true;
+
+      profiles.default = {
+        id = 0;
+        isDefault = true;
+        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+          # Note: Need to apply Catppuccin Firefox Color theme (Lavender) manually. It will stick afterwards.
+          firefox-color
+          onepassword-password-manager
+          ublock-origin
+          vimium
+          # Everhour
+          (buildFirefoxXpiAddon {
+            pname = "everhour";
+            version = "1.6.252";
+            addonId = "time-tracker-on-site@everhour.com";
+            url = "https://everhour.com/addon/firefox/everhour_time_tracker.xpi?v=23384609";
+            sha256 = "sha256-jukl3JT48sVnFAC1cpD5yVOPs89AiQlwgTsJHxc7ehE=";
+            meta = {
+              homepage = "https://everhour.com/";
+              description = "Everhour integration extension";
+              platforms = lib.platforms.all;
+            };
+          })
+        ];
+        settings = settings;
+      };
+
+      profiles.todoist = {
+        id = 1;
+        isDefault = false;
+        settings = settings // {
+          "browser.startup.homepage" = "https://app.todoist.com/app/upcoming";
+          "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+        };
+        userChrome = userChromeNoUi;
+      };
     };
-  };
 }
