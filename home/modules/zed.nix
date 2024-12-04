@@ -18,6 +18,20 @@
       "toml"
       "zig"
     ];
+    userKeymaps = [
+      {
+        context = "Editor";
+        bindings = {
+          ctrl-e = "workspace::ToggleLeftDock";
+        };
+      }
+      {
+        context = "Workspace";
+        bindings = {
+          ctrl-e = "workspace::ToggleLeftDock";
+        };
+      }
+    ];
     userSettings = {
       # TODO
       # assistant = {
@@ -37,6 +51,10 @@
         custom = 1.4;
       };
       hour_format = "hour24";
+      telemetry = {
+        diagnostics = false;
+        metrics = false;
+      };
       theme = {
         mode = "system";
         light = "Catppuccin Mocha - No Italics";
