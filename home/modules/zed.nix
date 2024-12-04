@@ -43,6 +43,7 @@
       #     model = "claude-3-5-sonnet-latest";
       #   };
       # };
+      auto_signature_help = true;
       auto_update = false;
       base_keymap = "VSCode";
       buffer_font_family = "Berkeley Mono";
@@ -51,6 +52,15 @@
         custom = 1.4;
       };
       hour_format = "hour24";
+      lsp = {
+        rust-analyzer = {
+          initialization_options = {
+            check = {
+              command = "clippy";
+            };
+          };
+        };
+      };
       telemetry = {
         diagnostics = false;
         metrics = false;
