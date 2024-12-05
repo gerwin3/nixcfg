@@ -41,6 +41,7 @@
         ".config/1Password"
         ".config/github-copilot"
         ".local/share/keyrings"
+        ".local/share/zed"
         ".mozilla"
         ".gnupg"
         ".ssh"
