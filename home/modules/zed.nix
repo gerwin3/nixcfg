@@ -23,26 +23,36 @@
         context = "Editor";
         bindings = {
           ctrl-e = "workspace::ToggleLeftDock";
+          ctrl-t = "workspace::ToggleBottomDock";
+          ctrl-f = "workspace::CloseAllDocks";
         };
       }
       {
         context = "Workspace";
         bindings = {
           ctrl-e = "workspace::ToggleLeftDock";
+          ctrl-t = "workspace::ToggleBottomDock";
+          ctrl-f = "workspace::CloseAllDocks";
+        };
+      }
+      {
+        context = "Pane";
+        bindings = {
+          "ctrl-," = "pane::ActivatePrevItem";
+          "ctrl-." = "pane::ActivateNextItem";
         };
       }
     ];
     userSettings = {
-      # TODO
-      # assistant = {
-      #   enabled = true;
-      #   version = "2";
-      #   default_open_ai_model = null;
-      #   default_model = {
-      #     provider = "zed.dev";
-      #     model = "claude-3-5-sonnet-latest";
-      #   };
-      # };
+      assistant = {
+        enabled = true;
+        version = "2";
+        default_open_ai_model = null;
+        default_model = {
+          provider = "copilot_chat";
+          model = "gpt-4o";
+        };
+      };
       auto_signature_help = true;
       auto_update = false;
       base_keymap = "VSCode";
