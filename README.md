@@ -20,7 +20,6 @@ This will apply the configuration, as well as updating the lock file.
 
 * On laptop, swaylock does not activate after closing the lid and opening again even though `swayidle` is configured to do so via `before-sleep`.
 * The NVIDIA open driver [does not load correctly](https://github.com/NixOS/nixpkgs/issues/334180) which causes CUDA to error with code 999. The workaround for now is to manually call `sudo modprobe nvidia_uvm` before using CUDA which fixes the issue until next boot.
-* The NVIDIA open driver does not compile with the latest Linux kernel 6.12. Keeping 6.11 for now.
 
 ## Installation
 
@@ -45,7 +44,7 @@ First, create a bootable medium from the [minimal NixOS installation image](http
 
    These are (roughly) the steps needed to partition the disk and create the
    necessary file systems:
-   
+
     ```bash
     # Partition a primary disk and a 2GB boot partition.
     parted /dev/nvme0n1 -- mklabel gpt

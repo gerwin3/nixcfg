@@ -9,8 +9,7 @@
   boot = {
     extraModulePackages = [ ];
     kernelModules = [ "kvm-amd" ];
-    # FIXME: Holding back on 6.12 until nvidia-open driver is compatible.
-    kernelPackages = pkgs.linuxPackages_6_11;
+    kernelPackages = pkgs.linuxPackages_latest;
     loader.efi.canTouchEfiVariables = true;
     initrd = {
       availableKernelModules = [
