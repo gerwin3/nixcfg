@@ -31,7 +31,7 @@
             inherit inputs;
           };
           modules = [
-            { nixpkgs.overlays = [ inputs.nur.overlay ]; }
+            { nixpkgs.overlays = [ inputs.nur.overlays.default ]; }
             ./nixos/desktop.nix
             inputs.impermanence.nixosModules.impermanence
             inputs.home-manager.nixosModules.home-manager
@@ -57,7 +57,7 @@
             inherit inputs;
           };
           modules = [
-            { nixpkgs.overlays = [ inputs.nur.overlay ]; }
+            { nixpkgs.overlays = [ inputs.nur.overlays.default ]; }
             ./nixos/laptop.nix
             inputs.impermanence.nixosModules.impermanence
             inputs.home-manager.nixosModules.home-manager
