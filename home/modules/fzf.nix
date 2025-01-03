@@ -6,6 +6,5 @@
     historyWidgetOptions = [
       "--layout reverse"
     ];
-    catppuccin.enable = true;
   };
 }

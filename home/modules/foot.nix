@@ -15,7 +15,6 @@
         term = "xterm-256color";
       };
     };
-    catppuccin.enable = true;
   };
 
   home.sessionVariables.TERMINAL = "foot";

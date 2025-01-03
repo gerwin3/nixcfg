@@ -11,7 +11,6 @@
       modules/fonts.nix
       modules/foot.nix
       modules/fzf.nix
-      modules/gh-dash.nix
       modules/git.nix
       modules/gtk.nix
       modules/matterhorn.nix

@@ -142,7 +142,6 @@
         opacity: 0.5;
       }
     '';
-    catppuccin.enable = true;
   };
 }
 
