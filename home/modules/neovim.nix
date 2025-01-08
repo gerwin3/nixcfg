@@ -1,10 +1,11 @@
 { pkgs, lib, ... }:
 
 {
+  home.file.".config/nvim/" = { source = ../extra/neovim; recursive = true; };
+
   programs.neovim = {
     defaultEditor = true;
     enable = true;
-    extraLuaConfig = lib.fileContents ../extra/neovim/init.lua;
     # For most projects it is recommended to have the development dependencies be
     # part of the devshell. Configuration file formats are an exception to this
     # since they can appear anywhere. So we load LSP support for them here:
@@ -15,6 +16,8 @@
       nixfmt-rfc-style
       ## TOML
       taplo
+      # Compiler to satisfy treesitter.
+      gcc
     ];
     # Copilot needs nodejs to be in PATH. For more info see:
     # https://github.com/NixOS/nixpkgs/issues/349496
