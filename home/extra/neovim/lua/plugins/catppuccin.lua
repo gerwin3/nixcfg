@@ -1,10 +1,13 @@
 return {
   {
     "catppuccin/nvim",
-    opts = {
-      flavour = "mocha",
-      transparent_background = false,
-    },
+    name = "catppuccin",
+    config = function()
+      require("catppuccin").setup({
+        flavour = "mocha",
+        transparent_background = false,
+      })
+    end,
   },
 
   {
