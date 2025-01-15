@@ -7,7 +7,6 @@
 
     # search
     ripgrep
-    fzf
 
     # compression tools
     zip
