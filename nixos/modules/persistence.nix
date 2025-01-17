@@ -42,6 +42,7 @@
         ".config/github-copilot"
         ".local/share/keyrings"
         ".local/share/nvim"
+        ".local/share/Steam"
         ".local/share/zed"
         ".mozilla"
         ".gnupg"
