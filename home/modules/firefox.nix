@@ -108,7 +108,7 @@
       profiles.default = {
         id = 0;
         isDefault = true;
-        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+        extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
           # Note: Need to apply Catppuccin Firefox Color theme (Lavender) manually. It will stick afterwards.
           firefox-color
           onepassword-password-manager
