@@ -11,6 +11,7 @@
       "/var/lib/fprint"
       "/var/lib/nixos"
       "/var/lib/systemd/coredump"
+      "/var/lib/tailscale"
       {
         # This is a workaround for the issue described here:
         # https://discourse.nixos.org/t/nix-with-flakes-does-not-recognise-home-config-nix-registry-json/30018/18
@@ -34,7 +35,6 @@
       "/etc/ssh/ssh_host_ed25519_key.pub"
       "/etc/wireguard/keys/private"
       "/etc/wireguard/keys/preshared"
-      "/var/lib/tailscale"
     ];
     users.gerwin = {
       directories = [
