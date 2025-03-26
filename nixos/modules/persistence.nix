@@ -34,6 +34,7 @@
       "/etc/ssh/ssh_host_ed25519_key.pub"
       "/etc/wireguard/keys/private"
       "/etc/wireguard/keys/preshared"
+      "/var/lib/tailscale"
     ];
     users.gerwin = {
       directories = [
