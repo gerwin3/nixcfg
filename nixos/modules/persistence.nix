@@ -41,6 +41,7 @@
         ".cache/ncspot"
         ".config/1Password"
         ".config/github-copilot"
+        ".cursor"
         ".local/share/keyrings"
         ".local/share/nvim"
         ".local/share/Steam"
