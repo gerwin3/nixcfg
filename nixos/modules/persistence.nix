@@ -11,6 +11,7 @@
       "/var/lib/fprint"
       "/var/lib/nixos"
       "/var/lib/systemd/coredump"
+      "/var/lib/tailscale"
       {
         # This is a workaround for the issue described here:
         # https://discourse.nixos.org/t/nix-with-flakes-does-not-recognise-home-config-nix-registry-json/30018/18
@@ -40,6 +41,7 @@
         ".cache/ncspot"
         ".config/1Password"
         ".config/github-copilot"
+        ".cursor"
         ".local/share/keyrings"
         ".local/share/nvim"
         ".local/share/Steam"
