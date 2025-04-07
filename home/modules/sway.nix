@@ -1,4 +1,9 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  lib,
+  variant,
+  ...
+}:
 
 {
   wayland.windowManager.sway = {
@@ -153,7 +158,7 @@
             background = background;
           };
         startup = [
-          { command = "preheat"; }
+          (lib.optional (variant == "desktop") { command = "preheat"; })
         ];
       };
 
