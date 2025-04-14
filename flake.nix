@@ -37,7 +37,7 @@
               home-manager.useUserPackages = true;
               home-manager.users.gerwin.imports = [
                 ./home
-                inputs.catppuccin.homeManagerModules.catppuccin
+                inputs.catppuccin.homeModules.catppuccin
               ];
               home-manager.extraSpecialArgs = {
                 inherit inputs;
@@ -64,7 +64,7 @@
               home-manager.useUserPackages = true;
               home-manager.users.gerwin.imports = [
                 ./home
-                inputs.catppuccin.homeManagerModules.catppuccin
+                inputs.catppuccin.homeModules.catppuccin
               ];
               home-manager.extraSpecialArgs = {
                 inherit inputs;
