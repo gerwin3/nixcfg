@@ -33,8 +33,6 @@
       "/etc/ssh/ssh_host_rsa_key.pub"
       "/etc/ssh/ssh_host_ed25519_key"
       "/etc/ssh/ssh_host_ed25519_key.pub"
-      "/etc/wireguard/keys/private"
-      "/etc/wireguard/keys/preshared"
     ];
     users.gerwin = {
       directories = [

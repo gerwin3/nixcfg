@@ -13,7 +13,6 @@
       modules/fzf.nix
       modules/git.nix
       modules/gtk.nix
-      modules/matterhorn.nix
       modules/ncspot.nix
       modules/neovim.nix
       modules/nix.nix

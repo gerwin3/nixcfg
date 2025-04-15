@@ -118,9 +118,8 @@ First, create a bootable medium from the [minimal NixOS installation image](http
    a good starting point.
 
 > [!NOTE]
-> It is advisable to temporarily comment out the private modules such
-> as `wireguard.nix` and re-add them after installation when git credentials
-> have been set up.
+> It is advisable to temporarily comment out the private modules and re-add
+> them after installation when git credentials have been set up.
 
 4. Generate your user password:
 
