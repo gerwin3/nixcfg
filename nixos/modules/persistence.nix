@@ -38,8 +38,8 @@
       directories = [
         ".cache/ncspot"
         ".config/1Password"
+        ".config/Code/User"
         ".config/github-copilot"
-        ".cursor"
         ".local/share/keyrings"
         ".local/share/nvim"
         ".local/share/Steam"

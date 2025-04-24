@@ -6,7 +6,6 @@
       modules/bash.nix
       modules/btop.nix
       modules/catppuccin.nix
-      modules/cursor.nix
       modules/firefox.nix
       modules/fonts.nix
       modules/foot.nix
@@ -21,6 +20,7 @@
       modules/sway.nix
       modules/swaylock.nix
       modules/swayidle.nix
+      modules/vscode.nix
       modules/waybar.nix
     ]
     ++ (lib.optional (variant == "desktop") modules/sway.desktop.nix)
