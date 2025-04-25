@@ -22,42 +22,78 @@
       {
         context = "Workspace && vim_mode == normal";
         bindings = {
-          "ctrl-e" = "workspace::ToggleLeftDock";
-          "ctrl-t" = "workspace::ToggleBottomDock";
+          "space e" = "workspace::ToggleLeftDock";
+          "space t" = "workspace::ToggleBottomDock";
+          "space f" = "file_finder::Toggle";
+          "ctrl-h" = "workspace::ActivatePaneLeft";
+          "ctrl-l" = "workspace::ActivatePaneRight";
+          "ctrl-k" = "workspace::ActivatePaneUp";
+          "ctrl-j" = "workspace::ActivatePaneDown";
         };
       }
       {
         context = "Editor";
         bindings = {
           "space d" = "pane::CloseActiveItem";
+          "ctrl-h" = "workspace::ActivatePaneLeft";
+          "ctrl-l" = "workspace::ActivatePaneRight";
+          "ctrl-k" = "workspace::ActivatePaneUp";
+          "ctrl-j" = "workspace::ActivatePaneDown";
+        };
+      }
+      {
+        context = "Editor && vim_mode == full";
+        bindings = {
+          "ctrl-enter" = "assistant::Assist";
         };
       }
       {
         context = "Editor && vim_mode == normal";
         bindings = {
-          "ctrl-e" = "workspace::ToggleLeftDock";
-          "ctrl-t" = "workspace::ToggleBottomDock";
-          "ctrl-h" = "pane::ActivatePrevItem";
-          "ctrl-j" = "pane::ActivateNextItem";
+          "space e" = "workspace::ToggleLeftDock";
+          "space t" = "workspace::ToggleBottomDock";
+          "space f" = "file_finder::Toggle";
+          "ctrl-h" = "workspace::ActivatePaneLeft";
+          "ctrl-l" = "workspace::ActivatePaneRight";
+          "ctrl-k" = "workspace::ActivatePaneUp";
+          "ctrl-j" = "workspace::ActivatePaneDown";
+        };
+      }
+      {
+        context = "Editor && vim_mode == visual";
+        bindings = {
+          "ctrl-a" = "assistant::QuoteSelection";
+          "ctrl-i" = "assistant::InlineAssist";
         };
       }
       {
         context = "Terminal";
         bindings = {
-          "ctrl-e" = "workspace::ToggleLeftDock";
-          "ctrl-t" = "workspace::ToggleBottomDock";
+          "space e" = "workspace::ToggleLeftDock";
+          "space t" = "workspace::ToggleBottomDock";
+          "space f" = "file_finder::Toggle";
+          "ctrl-h" = "workspace::ActivatePaneLeft";
+          "ctrl-l" = "workspace::ActivatePaneRight";
+          "ctrl-k" = "workspace::ActivatePaneUp";
+          "ctrl-j" = "workspace::ActivatePaneDown";
         };
       }
       {
         context = "ProjectPanel";
         bindings = {
+          "space e" = "workspace::ToggleLeftDock";
+          "space t" = "workspace::ToggleBottomDock";
+          "space f" = "file_finder::Toggle";
+          "ctrl-h" = "workspace::ActivatePaneLeft";
+          "ctrl-l" = "workspace::ActivatePaneRight";
+          "ctrl-k" = "workspace::ActivatePaneUp";
+          "ctrl-j" = "workspace::ActivatePaneDown";
           "alt-ctrl-a" = "project_panel::NewDirectory";
           "ctrl-a" = "project_panel::NewFile";
           "ctrl-d" = "project_panel::Delete";
           "ctrl-y" = "project_panel::Copy";
           "ctrl-v" = "project_panel::Paste";
           "ctrl-r" = "project_panel::Rename";
-          "ctrl-e" = "workspace::ToggleLeftDock";
         };
       }
     ];
@@ -100,7 +136,7 @@
         dark = "Catppuccin Mocha - No Italics";
       };
       toolbar = {
-        breadcrumbs = true;
+        breadcrumbs = false;
         quick_actions = false;
         selections_menu = false;
       };
