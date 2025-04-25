@@ -20,26 +20,44 @@
     ];
     userKeymaps = [
       {
+        context = "Workspace && vim_mode == normal";
+        bindings = {
+          "ctrl-e" = "workspace::ToggleLeftDock";
+          "ctrl-t" = "workspace::ToggleBottomDock";
+        };
+      }
+      {
         context = "Editor";
         bindings = {
-          ctrl-e = "workspace::ToggleLeftDock";
-          ctrl-t = "workspace::ToggleBottomDock";
-          ctrl-f = "workspace::CloseAllDocks";
+          "space d" = "pane::CloseActiveItem";
         };
       }
       {
-        context = "Workspace";
+        context = "Editor && vim_mode == normal";
         bindings = {
-          ctrl-e = "workspace::ToggleLeftDock";
-          ctrl-t = "workspace::ToggleBottomDock";
-          ctrl-f = "workspace::CloseAllDocks";
+          "ctrl-e" = "workspace::ToggleLeftDock";
+          "ctrl-t" = "workspace::ToggleBottomDock";
+          "ctrl-h" = "pane::ActivatePrevItem";
+          "ctrl-j" = "pane::ActivateNextItem";
         };
       }
       {
-        context = "Pane";
+        context = "Terminal";
         bindings = {
-          "ctrl-," = "pane::ActivatePrevItem";
-          "ctrl-." = "pane::ActivateNextItem";
+          "ctrl-e" = "workspace::ToggleLeftDock";
+          "ctrl-t" = "workspace::ToggleBottomDock";
+        };
+      }
+      {
+        context = "ProjectPanel";
+        bindings = {
+          "alt-ctrl-a" = "project_panel::NewDirectory";
+          "ctrl-a" = "project_panel::NewFile";
+          "ctrl-d" = "project_panel::Delete";
+          "ctrl-y" = "project_panel::Copy";
+          "ctrl-v" = "project_panel::Paste";
+          "ctrl-r" = "project_panel::Rename";
+          "ctrl-e" = "workspace::ToggleLeftDock";
         };
       }
     ];
@@ -47,7 +65,6 @@
       assistant = {
         enabled = true;
         version = "2";
-        default_open_ai_model = null;
         default_model = {
           provider = "copilot_chat";
           model = "gpt-4o";
@@ -57,7 +74,7 @@
       auto_update = false;
       base_keymap = "VSCode";
       buffer_font_family = "Berkeley Mono";
-      buffer_font_size = 12;
+      buffer_font_size = 11;
       buffer_line_height = {
         custom = 1.4;
       };
@@ -71,6 +88,8 @@
           };
         };
       };
+      show_edit_predictions = false;
+      show_line_numbers = true;
       telemetry = {
         diagnostics = false;
         metrics = false;
@@ -79,6 +98,11 @@
         mode = "system";
         light = "Catppuccin Mocha - No Italics";
         dark = "Catppuccin Mocha - No Italics";
+      };
+      toolbar = {
+        breadcrumbs = true;
+        quick_actions = false;
+        selections_menu = false;
       };
       ui_font_size = 12;
       ui_font_family = "Berkeley Mono";
