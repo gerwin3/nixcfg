@@ -67,6 +67,12 @@
         };
       }
       {
+        context = "Editor && showing_completions";
+        bindings = {
+          "ctrl-y" = "editor::ConfirmCompletion";
+        };
+      }
+      {
         context = "Terminal";
         bindings = {
           "space e" = "workspace::ToggleLeftDock";
