@@ -79,7 +79,7 @@
         };
       }
       {
-        context = "ProjectPanel";
+        context = "ProjectPanel && not_editing";
         bindings = {
           "space e" = "workspace::ToggleLeftDock";
           "space t" = "workspace::ToggleBottomDock";
@@ -88,12 +88,12 @@
           "ctrl-l" = "workspace::ActivatePaneRight";
           "ctrl-k" = "workspace::ActivatePaneUp";
           "ctrl-j" = "workspace::ActivatePaneDown";
-          "alt-ctrl-a" = "project_panel::NewDirectory";
-          "ctrl-a" = "project_panel::NewFile";
-          "ctrl-d" = "project_panel::Delete";
-          "ctrl-y" = "project_panel::Copy";
-          "ctrl-v" = "project_panel::Paste";
-          "ctrl-r" = "project_panel::Rename";
+          "shift-a" = "project_panel::NewDirectory";
+          "a" = "project_panel::NewFile";
+          "d" = "project_panel::Delete";
+          "y" = "project_panel::Copy";
+          "v" = "project_panel::Paste";
+          "r" = "project_panel::Rename";
         };
       }
     ];
