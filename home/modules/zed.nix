@@ -25,6 +25,7 @@
           "space e" = "workspace::ToggleLeftDock";
           "space t" = "workspace::ToggleBottomDock";
           "space f" = "file_finder::Toggle";
+          "space d" = "pane::CloseActiveItem";
           "ctrl-h" = "workspace::ActivatePaneLeft";
           "ctrl-l" = "workspace::ActivatePaneRight";
           "ctrl-k" = "workspace::ActivatePaneUp";
@@ -34,7 +35,6 @@
       {
         context = "Editor";
         bindings = {
-          "space d" = "pane::CloseActiveItem";
           "ctrl-h" = "workspace::ActivatePaneLeft";
           "ctrl-l" = "workspace::ActivatePaneRight";
           "ctrl-k" = "workspace::ActivatePaneUp";
