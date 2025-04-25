@@ -21,6 +21,7 @@
       modules/swaylock.nix
       modules/swayidle.nix
       modules/waybar.nix
+      modules/zed.nix
     ]
     ++ (lib.optional (variant == "desktop") modules/sway.desktop.nix)
     ++ (lib.optional (variant == "laptop") modules/sway.laptop.nix);

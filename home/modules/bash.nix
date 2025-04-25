@@ -1,7 +1,7 @@
 { ... }:
 
-# TODO: Switch to zsh. Have been meaning to do it for a while but no time for it
-# yet. Would be cool though. I think some of the complicated terminal
+# TODO: Switch to zsh. Have been meaning to do it for a while but no time for
+# it yet. Would be cool though. I think some of the complicated terminal
 # integration features below become much easier to enable. And also the prompt
 # is much easier I think.
 
