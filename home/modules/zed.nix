@@ -79,7 +79,7 @@
         bindings = {
           "ctrl-a" = "assistant::QuoteSelection";
           "ctrl-i" = "assistant::InlineAssist";
-          "g q" = "editor::Rewrap"
+          "g q" = "editor::Rewrap";
         };
       }
       {
