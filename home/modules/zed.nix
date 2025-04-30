@@ -24,7 +24,13 @@
         bindings = {
           "ctrl-e" = "workspace::ToggleLeftDock";
           "ctrl-f" = "file_finder::Toggle";
-          "ctrl-w" = "workspace::CloseWindow";
+        };
+      }
+      {
+        context = "VimControl && !menu";
+        bindings = {
+          "ctrl-e" = "workspace::ToggleLeftDock";
+          "ctrl-f" = "file_finder::Toggle";
         };
       }
       {
@@ -79,7 +85,7 @@
         bindings = {
           "ctrl-a" = "assistant::QuoteSelection";
           "ctrl-i" = "assistant::InlineAssist";
-          "g q" = "editor::Rewrap";
+          "g w" = "editor::Rewrap";
         };
       }
       {
@@ -113,9 +119,9 @@
           "shift-a" = "project_panel::NewDirectory";
           "a" = "project_panel::NewFile";
           "d" = "project_panel::Delete";
-          "y" = "project_panel::Copy";
-          "v" = "project_panel::Paste";
           "r" = "project_panel::Rename";
+          "y" = "project_panel::Copy";
+          "p" = "project_panel::Paste";
         };
       }
     ];
