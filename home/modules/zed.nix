@@ -20,11 +20,20 @@
     ];
     userKeymaps = [
       {
+        context = "Workspace";
+        bindings = {
+          "ctrl-e" = "workspace::ToggleLeftDock";
+          "ctrl-f" = "file_finder::Toggle";
+          "ctrl-w" = "workspace::CloseWindow";
+        };
+      }
+      {
         context = "Workspace && vim_mode == normal";
         bindings = {
           "space e" = "workspace::ToggleLeftDock";
           "space t" = "workspace::ToggleBottomDock";
           "space f" = "file_finder::Toggle";
+          "space s" = "project_search::ToggleFocus";
           "space d" = "pane::CloseActiveItem";
           "ctrl-h" = "workspace::ActivatePaneLeft";
           "ctrl-l" = "workspace::ActivatePaneRight";
@@ -53,10 +62,16 @@
           "space e" = "workspace::ToggleLeftDock";
           "space t" = "workspace::ToggleBottomDock";
           "space f" = "file_finder::Toggle";
+          "space s" = "project_search::ToggleFocus";
           "ctrl-h" = "workspace::ActivatePaneLeft";
           "ctrl-l" = "workspace::ActivatePaneRight";
           "ctrl-k" = "workspace::ActivatePaneUp";
           "ctrl-j" = "workspace::ActivatePaneDown";
+          "g r" = "editor::FindAllReferences";
+          "g d" = "editor::GoToDefinition";
+          "g i" = "editor::GoToImplementation";
+          "g a" = "editor::ToggleCodeActions";
+          "enter" = "editor::OpenExcerpts";
         };
       }
       {
@@ -64,6 +79,7 @@
         bindings = {
           "ctrl-a" = "assistant::QuoteSelection";
           "ctrl-i" = "assistant::InlineAssist";
+          "g q" = "editor::Rewrap"
         };
       }
       {

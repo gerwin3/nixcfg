@@ -83,6 +83,7 @@
       grep = "grep --color=auto";
       htop = "btop";
       work = "cd $(worktree)";
+      zed = "zeditor --new .";
     };
     shellOptions = [
       "autocd"
