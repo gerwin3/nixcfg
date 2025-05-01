@@ -20,13 +20,6 @@
     ];
     userKeymaps = [
       {
-        context = "Workspace";
-        bindings = {
-          "ctrl-e" = "workspace::ToggleLeftDock";
-          "ctrl-f" = "file_finder::Toggle";
-        };
-      }
-      {
         context = "VimControl && !menu";
         bindings = {
           "ctrl-e" = "workspace::ToggleLeftDock";
@@ -36,7 +29,7 @@
       {
         context = "Workspace && vim_mode == normal";
         bindings = {
-          "space e" = "workspace::ToggleLeftDock";
+          "space e" = "project_panel::ToggleFocus";
           "space t" = "workspace::ToggleBottomDock";
           "space f" = "file_finder::Toggle";
           "space s g" = "project_search::ToggleFocus";
@@ -67,7 +60,7 @@
       {
         context = "Editor && vim_mode == normal";
         bindings = {
-          "space e" = "workspace::ToggleLeftDock";
+          "space e" = "project_panel::ToggleFocus";
           "space t" = "workspace::ToggleBottomDock";
           "space f" = "file_finder::Toggle";
           "space s g" = "project_search::ToggleFocus";
@@ -101,7 +94,7 @@
       {
         context = "Terminal";
         bindings = {
-          "space e" = "workspace::ToggleLeftDock";
+          "space e" = "project_panel::ToggleFocus";
           "space t" = "workspace::ToggleBottomDock";
           "space f" = "file_finder::Toggle";
           "ctrl-h" = "workspace::ActivatePaneLeft";
