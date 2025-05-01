@@ -39,7 +39,8 @@
           "space e" = "workspace::ToggleLeftDock";
           "space t" = "workspace::ToggleBottomDock";
           "space f" = "file_finder::Toggle";
-          "space s" = "project_search::ToggleFocus";
+          "space s g" = "project_search::ToggleFocus";
+          "space s s" = "project_symbols::Toggle";
           "space d" = "pane::CloseActiveItem";
           "space q" = "workspace::CloseWindow";
           "ctrl-h" = "workspace::ActivatePaneLeft";
@@ -69,7 +70,8 @@
           "space e" = "workspace::ToggleLeftDock";
           "space t" = "workspace::ToggleBottomDock";
           "space f" = "file_finder::Toggle";
-          "space s" = "project_search::ToggleFocus";
+          "space s g" = "project_search::ToggleFocus";
+          "space s s" = "project_symbols::Toggle";
           "space q" = "workspace::CloseWindow";
           "ctrl-h" = "workspace::ActivatePaneLeft";
           "ctrl-l" = "workspace::ActivatePaneRight";
