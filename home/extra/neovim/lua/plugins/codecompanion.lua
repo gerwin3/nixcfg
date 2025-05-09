@@ -1,3 +1,5 @@
+-- TODO: Maybe add this: https://github.com/olimorris/codecompanion.nvim/discussions/813#discussioncomment-12289384
+
 return {
   "olimorris/codecompanion.nvim",
   dependencies = {
