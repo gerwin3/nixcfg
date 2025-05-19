@@ -9,11 +9,14 @@
         position = "top";
         modules-left = [ "sway/workspaces" ];
         modules-center = [ ];
-        modules-right = [
-          "cpu"
-          "memory"
-          "pulseaudio"
-        ] ++ lib.optional (variant == "laptop") "battery" ++ [ "clock" ];
+        modules-right =
+          [
+            "cpu"
+            "memory"
+            "pulseaudio"
+          ]
+          ++ lib.optional (variant == "laptop") "battery"
+          ++ [ "clock" ];
         margin-top = 2;
         margin-bottom = -6;
         margin-left = 5;
@@ -34,15 +37,15 @@
           ];
         };
         clock = {
-          format = "  {:%Y-%m-%d %H:%M:%S}";
+          format = " {:%Y-%m-%d %H:%M:%S}";
           interval = 1;
           tooltip-format = "{:%A, %B %d, %Y (%R)}";
         };
         cpu = {
-          format = "  {usage}%";
+          format = " {usage}%";
         };
         memory = {
-          format = "  {percentage}%";
+          format = " {percentage}%";
         };
         pulseaudio = {
           format = "{icon} {volume}%";
