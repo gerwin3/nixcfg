@@ -5,6 +5,10 @@
     # ricing
     neofetch
 
+    # calculator
+    calc
+    fend
+
     # search
     ripgrep
 
@@ -48,6 +52,7 @@
 
     # file manipulation
     gnused
+    hexyl
 
     # images
     swayimg
