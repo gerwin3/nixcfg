@@ -46,6 +46,7 @@
     libsecret
 
     # file management
+    yazi
     file
     which
     tree
