@@ -86,7 +86,7 @@
       # This complicated alias exists mostly to ensure that Zed always opens
       # with at least one open file since otherwise some keybinds do not work
       # initially.
-      zed = "zeditor --new . --add \"$( [ -f README.md ] && echo README.md || ( [ -f README ] && echo README || ( [ -f Cargo.toml ] && echo Cargo.toml || echo . ) ) )\"";
+      zed = "zeditor --add \"$( [ -f README.md ] && echo README.md || ( [ -f README ] && echo README || ( [ -f Cargo.toml ] && echo Cargo.toml || echo . ) ) )\" --new .";
     };
     shellOptions = [
       "autocd"
