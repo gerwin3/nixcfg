@@ -14,7 +14,6 @@
       modules/gtk.nix
       modules/ncspot.nix
       modules/neovim.nix
-      modules/nix.nix
       modules/packages.nix
       modules/scripts.nix
       modules/sway.nix
