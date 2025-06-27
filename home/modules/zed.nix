@@ -184,6 +184,27 @@
           # Required for correct rewrapping behavior in Rust.
           preferred_line_length = 100;
         };
+        Python = {
+          show_edit_predictions = true;
+          language_servers = [
+            "!pylsp"
+            "pyright"
+            "ruff"
+          ];
+          format_on_save = true;
+          formatter = [
+            {
+              code_actions = {
+                source.organizeImports.ruff = true;
+              };
+            }
+            {
+              language_server = {
+                name = "ruff";
+              };
+            }
+          ];
+        };
       };
       lsp = {
         rust-analyzer = {
