@@ -9,8 +9,5 @@
         user = "gerwin";
       };
     };
-
-    # Use tty2 since tty1 is used by systemd boot logging.
-    vt = 2;
   };
 }
