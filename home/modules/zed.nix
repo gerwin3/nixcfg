@@ -159,14 +159,9 @@
       }
     ];
     userSettings = {
-      assistant = {
+      agent = {
         enabled = true;
-        version = "2";
         default_model = {
-          provider = "copilot_chat";
-          model = "gpt-4o";
-        };
-        editor_model = {
           provider = "copilot_chat";
           model = "gpt-4o";
         };
@@ -178,7 +173,9 @@
       buffer_line_height = {
         custom = 1.4;
       };
-      hour_format = "hour24";
+      gutter = {
+        line_numbers = true;
+      };
       languages = {
         Rust = {
           # Required for correct rewrapping behavior in Rust.
@@ -191,13 +188,8 @@
             "pyright"
             "ruff"
           ];
-          format_on_save = true;
+          format_on_save = "on";
           formatter = [
-            {
-              code_actions = {
-                source.organizeImports.ruff = true;
-              };
-            }
             {
               language_server = {
                 name = "ruff";
@@ -216,7 +208,6 @@
         };
       };
       show_edit_predictions = false;
-      show_line_numbers = true;
       telemetry = {
         diagnostics = false;
         metrics = false;
