@@ -8,6 +8,9 @@
         command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd 'sway --unsupported-gpu |& tee /tmp/sway.log'";
         user = "gerwin";
       };
+      terminal = {
+        vt = 2;
+      };
     };
   };
 }
