@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   services.greetd = {
@@ -9,7 +9,7 @@
         user = "gerwin";
       };
       terminal = {
-        vt = 2;
+        vt = lib.mkForce 2;
       };
     };
   };
