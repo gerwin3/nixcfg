@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   programs.zed-editor = {
@@ -17,6 +17,10 @@
       "tokyo-night"
       "toml"
       "zig"
+    ];
+    extraPackages = with pkgs; [
+      nixd
+      nixfmt
     ];
     userKeymaps = [
       # Keybindings
@@ -199,13 +203,18 @@
         };
       };
       lsp = {
-        nil = {
-          initialization_options = {
-            formatting = {
-              command = ["nixfmt"];
-            };
+        nix = {
+          binary = {
+            path_lookup = true;
           };
         };
+        # nixd = {
+        #   initialization_options = {
+        #     formatting = {
+        #       command = [ "nixfmt" ];
+        #     };
+        #   };
+        # };
         rust-analyzer = {
           initialization_options = {
             check = {
