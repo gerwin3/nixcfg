@@ -203,8 +203,8 @@
           initialization_options = {
             formatting = {
               command = "nixfmt";
-            }
-          }
+            };
+          };
         };
         rust-analyzer = {
           initialization_options = {
