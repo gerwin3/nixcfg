@@ -181,6 +181,13 @@
         line_numbers = true;
       };
       languages = {
+        Nix = {
+          format_on_save = {
+            external = {
+              command = "nixfmt";
+            };
+          };
+        };
         Rust = {
           # Required for correct rewrapping behavior in Rust.
           preferred_line_length = 100;
@@ -208,13 +215,6 @@
             path_lookup = true;
           };
         };
-        # nixd = {
-        #   initialization_options = {
-        #     formatting = {
-        #       command = [ "nixfmt" ];
-        #     };
-        #   };
-        # };
         rust-analyzer = {
           initialization_options = {
             check = {
