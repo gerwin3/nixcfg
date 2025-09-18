@@ -19,6 +19,7 @@
       "zig"
     ];
     extraPackages = with pkgs; [
+      marksman
       nixd
       nixfmt
     ];
@@ -187,6 +188,10 @@
               command = "nixfmt";
             };
           };
+          language_servers = [
+            "nixd"
+            "!nil"
+          ];
         };
         Rust = {
           # Required for correct rewrapping behavior in Rust.
@@ -210,6 +215,11 @@
         };
       };
       lsp = {
+        marksman = {
+          binary = {
+            path = "${pkgs.marksman}/bin/marksman";
+          };
+        };
         nix = {
           binary = {
             path_lookup = true;
