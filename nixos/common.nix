@@ -17,6 +17,7 @@
     modules/printing.nix
     modules/security.nix
     modules/swaylock.nix
+    modules/tailscale.nix
     modules/users.nix
   ];
 
