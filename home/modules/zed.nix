@@ -153,6 +153,8 @@
           "p" = "project_panel::Paste";
           "r" = "project_panel::Rename";
           "y" = "project_panel::Copy";
+          # Reverses this: https://github.com/zed-industries/zed/pull/36973
+          "o" = "project_panel::OpenPermanent";
           # This keybinding is a workaround so that pressing enter inside the
           # project panel will open the file and then close the project panel
           # instead of leaving it open.
