@@ -222,11 +222,6 @@
             path = "${pkgs.marksman}/bin/marksman";
           };
         };
-        nix = {
-          binary = {
-            path_lookup = true;
-          };
-        };
         rust-analyzer = {
           initialization_options = {
             check = {
