@@ -65,6 +65,9 @@
     # desktop environment
     sway-launcher-desktop
 
+    # assistants
+    codex
+
     # lol
     cowsay
   ];
