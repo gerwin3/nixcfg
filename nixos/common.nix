@@ -19,6 +19,7 @@
     modules/swaylock.nix
     modules/tailscale.nix
     modules/users.nix
+    modules/virtualization.nix
   ];
 
   system.stateVersion = "23.11"; # Never change this.
