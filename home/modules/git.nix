@@ -3,9 +3,8 @@
 {
   programs.git = {
     enable = true;
-    userName = "Gerwin van der Lugt";
-    userEmail = "account+git@gerwin3.com";
-    extraConfig = {
+
+    settings = {
       branch.sort = "-committerdate";
       commit.verbose = true;
       core.editor = "vim";
@@ -19,6 +18,11 @@
       pull.rebase = false;
       rerere.enabled = true;
       tag.sort = "version:refname";
+
+      user = {
+        name = "Gerwin van der Lugt";
+        email = "account+git@gerwin3.com";
+      };
     };
   };
 }
