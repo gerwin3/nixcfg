@@ -14,6 +14,17 @@
         # selection-target = "both";
         term = "xterm-256color";
       };
+
+      key-bindings = {
+        search-start = "Control+Shift+f";
+        scrollback-up-half-page = "Control+Shift+k";
+        scrollback-down-half-page = "Control+Shift+j";
+      };
+
+      search-bindings = {
+        find-prev = "Shift+Tab";
+        find-next = "Tab";
+      };
     };
   };
 
