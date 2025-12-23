@@ -62,6 +62,9 @@
     grim
     slurp
 
+    # video
+    ffmpeg
+
     # desktop environment
     sway-launcher-desktop
 
