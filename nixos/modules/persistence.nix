@@ -49,9 +49,7 @@
         "work"
       ];
       files = [
-        ".aws/credentials"
         ".bash_history"
-        ".cargo/credentials.toml"
       ];
     };
   };
