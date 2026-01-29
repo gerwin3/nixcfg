@@ -13,7 +13,7 @@
       # Language servers and formatters
       ## Nix
       nil
-      nixfmt-rfc-style
+      nixfmt
       ## TOML
       taplo
       # Compiler to satisfy treesitter.
