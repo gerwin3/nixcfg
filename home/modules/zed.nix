@@ -188,11 +188,7 @@
           format_on_save = "off";
         };
         Nix = {
-          format_on_save = {
-            external = {
-              command = "nixfmt";
-            };
-          };
+          format_on_save = "on";
           language_servers = [
             "nixd"
             "!nil"
