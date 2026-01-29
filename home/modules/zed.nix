@@ -184,6 +184,9 @@
         line_numbers = true;
       };
       languages = {
+        HTML = {
+          format_on_save = "off";
+        };
         Nix = {
           format_on_save = {
             external = {
