@@ -117,10 +117,10 @@
           # Everhour
           (buildFirefoxXpiAddon {
             pname = "everhour";
-            version = "1.6.252";
+            version = "1.6.297";
             addonId = "time-tracker-on-site@everhour.com";
-            url = "https://everhour.com/addon/firefox/everhour_time_tracker.xpi?v=23384609";
-            sha256 = "sha256-QPyf+buJ5hpLgb1AdAPSqV/GuXL1SZKq1dYfR3E2I0o=";
+            url = "https://everhour.com/addon/firefox/everhour_time_tracker.xpi?v=8376296";
+            sha256 = "sha256-TzsxQjTnUtfrjervqyfp8su4L75hijD9u4xkRbRni8M=";
             meta = {
               homepage = "https://everhour.com/";
               description = "Everhour integration extension";
