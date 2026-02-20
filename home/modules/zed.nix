@@ -169,8 +169,8 @@
       agent = {
         enabled = true;
         default_model = {
-          provider = "copilot_chat";
-          model = "gpt-4o";
+          provider = "openai";
+          model = "gpt-5.2-codex";
         };
       };
       auto_signature_help = true;
