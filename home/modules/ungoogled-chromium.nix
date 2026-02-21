@@ -46,12 +46,6 @@
           sha256 = "sha256:0b148xvsyrdj873chwlix1nbbp60f5yp8gw7gpn4gkqd8j1v9gap";
           version = "2026.215.1801";
         })
-        # I Still Don't Care About Cookies
-        (createChromiumExtension {
-          id = "edibdbjcniadpccecjdfdjjppcpchdlm";
-          sha256 = "sha256:0zf320qf2n7ivrab2qwf9i0fxh8wbsf1gn9ldmy2kpa30g1wvdj6";
-          version = "1.1.9";
-        })
         # Vimium
         (createChromiumExtension {
           id = "dbepggeogbaibhgnhhndojpepiihcmeb";
