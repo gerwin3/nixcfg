@@ -23,11 +23,8 @@
   # TODO: This does not work at the moment on my framework for some reason.
   services.swayidle = {
     enable = true;
-    events = [
-      {
-        event = "before-sleep";
-        command = "swaylock";
-      }
-    ];
+    events = {
+      "before-sleep" = "swaylock";
+    };
   };
 }
