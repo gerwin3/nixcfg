@@ -52,6 +52,13 @@
           sha256 = "sha256:0f0gm9p88y8d26lv0cy3i2idl8whn7bphwm2p3cvrl5i5nh6waq1";
           version = "2.4.0";
         })
+        # Catppuccin Theme
+        (createChromiumExtension {
+          id = "bkkmolkhemgaeaeggcmfbghljjjoofoh";
+          sha256 = "sha256:01bzcbpxgrzmwp514q7fgp8g144bs7rzfmp0r07g6ysq0ykbhz3v";
+          version = "5.0.0";
+        })
+
       ];
     commandLineArgs = [
       "--force-dark-mode"
