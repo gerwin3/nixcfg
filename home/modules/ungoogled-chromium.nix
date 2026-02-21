@@ -37,13 +37,13 @@
         # 1Password
         (createChromiumExtension {
           id = "aeblfdkhhhdcdjpifhhbdiojplfjncoa";
-          sha256 = "sha256:0ksbby7sim15b6ym8m3yjw3zz0942r9sg43grqpv1cckb55c4ha8";
+          sha256 = "sha256:1ry8h3as008b9d9jr3q9jaqxxfnvylalp3jcsyd21ap8khzs1p2p";
           version = "8.12.2.37";
         })
         # uBlock Origin Lite
         (createChromiumExtension {
           id = "ddkjiahejlhfcafbddmgiahcphecmpfh";
-          sha256 = "sha256:0ksbby7sim15b6ym8m3yjw3zz0942r9sg43grqpv1cckb55c4ha8";
+          sha256 = "sha256:0b148xvsyrdj873chwlix1nbbp60f5yp8gw7gpn4gkqd8j1v9gap";
           version = "2026.215.1801";
         })
         # I Still Don't Care About Cookies
