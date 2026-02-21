@@ -38,7 +38,7 @@
           # -- Applications --
 
           "${mod}+Return" = "exec --no-startup-id foot";
-          "${mod}+Shift+Return" = "exec --no-startup-id firefox";
+          "${mod}+Shift+Return" = "exec --no-startup-id chromium";
           "${mod}+s" = "exec --no-startup-id grim -g \"$(slurp)\" - | wl-copy";
           "${mod}+Shift+s" = "exec --no-startup-id GRIM_DEFAULT_DIR=/home/gerwin grim -g \"$(slurp)\"";
           "${mod}+Space" = "exec --no-startup-id foot -a launcher -e sway-launcher-desktop";

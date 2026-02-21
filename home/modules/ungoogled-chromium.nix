@@ -34,9 +34,15 @@
         );
       in
       [
-        # uBlock Origin
+        # 1Password
         (createChromiumExtension {
-          id = "cjpalhdlnbpafiamejdnhcphjbkeiagm";
+          id = "aeblfdkhhhdcdjpifhhbdiojplfjncoa";
+          sha256 = "sha256:0ksbby7sim15b6ym8m3yjw3zz0942r9sg43grqpv1cckb55c4ha8";
+          version = "8.12.2.37";
+        })
+        # uBlock Origin Lite
+        (createChromiumExtension {
+          id = "ddkjiahejlhfcafbddmgiahcphecmpfh";
           sha256 = "sha256:0ksbby7sim15b6ym8m3yjw3zz0942r9sg43grqpv1cckb55c4ha8";
           version = "2026.215.1801";
         })
