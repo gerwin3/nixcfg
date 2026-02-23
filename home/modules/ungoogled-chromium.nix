@@ -55,7 +55,7 @@
         # Catppuccin Theme
         (createChromiumExtension {
           id = "bkkmolkhemgaeaeggcmfbghljjjoofoh";
-          sha256 = "sha256:01bzcbpxgrzmwp514q7fgp8g144bs7rzfmp0r07g6ysq0ykbhz3v";
+          sha256 = "sha256:1n45j68hl3m8w3ip96gbxxra6i476n8q7x7vp7im4b6v1ykv1hhq";
           version = "5.0.0";
         })
 
