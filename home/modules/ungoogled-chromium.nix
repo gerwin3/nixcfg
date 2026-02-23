@@ -43,7 +43,7 @@
         # uBlock Origin Lite
         (createChromiumExtension {
           id = "ddkjiahejlhfcafbddmgiahcphecmpfh";
-          sha256 = "sha256:0b148xvsyrdj873chwlix1nbbp60f5yp8gw7gpn4gkqd8j1v9gap";
+          sha256 = "sha256:1n45j68hl3m8w3ip96gbxxra6i476n8q7x7vp7im4b6v1ykv1hhq";
           version = "2026.215.1801";
         })
         # Vimium
@@ -55,7 +55,7 @@
         # Catppuccin Theme
         (createChromiumExtension {
           id = "bkkmolkhemgaeaeggcmfbghljjjoofoh";
-          sha256 = "sha256:1n45j68hl3m8w3ip96gbxxra6i476n8q7x7vp7im4b6v1ykv1hhq";
+          sha256 = "sha256:01bzcbpxgrzmwp514q7fgp8g144bs7rzfmp0r07g6ysq0ykbhz3v";
           version = "5.0.0";
         })
 
