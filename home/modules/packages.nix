@@ -70,6 +70,7 @@
 
     # assistants
     codex
+    code-cursor
 
     # lol
     cowsay
