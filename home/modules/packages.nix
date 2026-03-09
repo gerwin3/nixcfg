@@ -2,9 +2,6 @@
 
 {
   home.packages = with pkgs; [
-    # ricing
-    neofetch
-
     # calculator
     calc
     fend
