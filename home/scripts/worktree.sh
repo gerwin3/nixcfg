@@ -20,14 +20,18 @@ fi
 # Prune deleted worktress first.
 git worktree prune
 
-if [ -z "${1}" ]; then 
+if [ -z "${1}" ]; then
   # Select branch using fzf.
-  branch=$(git for-each-ref --format='%(refname:short)' refs/heads/ | fzf) || exit 1
+  if ! branch=$(git for-each-ref --format='%(refname:short)' refs/heads/ | fzf); then
+    exit 0
+  fi
   branch=$(echo "${branch}" | tr -d '[:space:]')
-else 
+  if [ -z "${branch}" ]; then
+    exit 0
+  fi
+else
   branch="${1}"
 fi
-
 branch_dirname=$(echo "${branch}" | tr '/' '-')
 dest_dir="${tree_dir}/${branch_dirname}"
 
