@@ -79,6 +79,7 @@
       PROMPT_COMMAND="''${PROMPT_COMMAND:+$PROMPT_COMMAND; }__auto_develop"
     '';
     shellAliases = {
+      codex = "codex --yolo";
       copy = "wl-copy";
       grep = "grep --color=auto";
       htop = "btop";
