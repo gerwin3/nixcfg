@@ -35,7 +35,7 @@
               nixpkgs.overlays = [
                 inputs.nur.overlays.default
                 (final: prev: {
-                  codex = inputs.codex.packages.${prev.system}.default;
+                  codex = inputs.codex.packages.${prev.stdenv.hostPlatform.system}.default;
                 })
               ];
             }
@@ -68,7 +68,7 @@
               nixpkgs.overlays = [
                 inputs.nur.overlays.default
                 (final: prev: {
-                  codex = inputs.codex.packages.${prev.system}.default;
+                  codex = inputs.codex.packages.${prev.stdenv.hostPlatform.system}.default;
                 })
               ];
             }

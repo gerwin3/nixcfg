@@ -24,5 +24,7 @@
         email = "account+git@gerwin3.com";
       };
     };
+
+    signing.format = null;
   };
 }
