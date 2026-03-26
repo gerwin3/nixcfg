@@ -9,8 +9,7 @@
   boot = {
     extraModulePackages = [ ];
     kernelModules = [ "kvm-amd" ];
-    # TODO: Switch back to linuxPackages_latest once nvidia-open builds on 6.19+.
-    kernelPackages = pkgs.linuxPackages_6_18;
+    kernelPackages = pkgs.linuxPackages_latest;
     loader.efi.canTouchEfiVariables = true;
     initrd = {
       availableKernelModules = [
