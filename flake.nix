@@ -32,7 +32,6 @@
           modules = [
             {
               nixpkgs.overlays = [
-                inputs.nur.overlays.default
                 (final: prev: {
                   codex = inputs.codex.packages.${prev.stdenv.hostPlatform.system}.default;
                 })
@@ -65,7 +64,6 @@
           modules = [
             {
               nixpkgs.overlays = [
-                inputs.nur.overlays.default
                 (final: prev: {
                   codex = inputs.codex.packages.${prev.stdenv.hostPlatform.system}.default;
                 })
