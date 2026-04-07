@@ -3,9 +3,9 @@
 {
   imports = [
     ./common.nix
-    ./modules/brightness.nix
     ./modules/fingerprint.nix
     ./modules/fwupd.nix
+    ./modules/time.nix
     ./hardware/framework-13-Ryzen.nix
   ];
 
