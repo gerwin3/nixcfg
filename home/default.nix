@@ -5,7 +5,6 @@
     modules/bash.nix
     modules/btop.nix
     modules/catppuccin.nix
-    modules/firefox.nix
     modules/fonts.nix
     modules/foot.nix
     modules/fzf.nix

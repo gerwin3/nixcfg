@@ -12,7 +12,6 @@
     impermanence = {
       url = "github:nix-community/impermanence";
     };
-    nur.url = "github:nix-community/nur"; # Used for Firefox extensions.
     codex = {
       url = "github:openai/codex?ref=rust-v0.116.0";
       inputs.nixpkgs.follows = "nixpkgs";
