@@ -40,7 +40,6 @@
         ".config/1Password"
         ".config/chromium"
         ".config/Cursor"
-        ".config/github-copilot"
         ".codex"
         ".local/share/keyrings"
         ".local/share/nvim"
