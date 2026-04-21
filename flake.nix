@@ -12,11 +12,7 @@
     impermanence = {
       url = "github:nix-community/impermanence";
     };
-    nur.url = "github:nix-community/nur"; # Used for Firefox extensions.
-    codex = {
-      url = "github:openai/codex?ref=rust-v0.116.0";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+
     catppuccin.url = "github:catppuccin/nix";
   };
 
@@ -31,14 +27,6 @@
             inherit inputs;
           };
           modules = [
-            {
-              nixpkgs.overlays = [
-                inputs.nur.overlays.default
-                (final: prev: {
-                  codex = inputs.codex.packages.${prev.stdenv.hostPlatform.system}.default;
-                })
-              ];
-            }
             ./nixos/desktop.nix
             inputs.impermanence.nixosModules.impermanence
             inputs.home-manager.nixosModules.home-manager
@@ -64,14 +52,6 @@
             inherit inputs;
           };
           modules = [
-            {
-              nixpkgs.overlays = [
-                inputs.nur.overlays.default
-                (final: prev: {
-                  codex = inputs.codex.packages.${prev.stdenv.hostPlatform.system}.default;
-                })
-              ];
-            }
             ./nixos/laptop.nix
             inputs.impermanence.nixosModules.impermanence
             inputs.home-manager.nixosModules.home-manager

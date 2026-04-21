@@ -170,7 +170,7 @@
         enabled = true;
         default_model = {
           provider = "openai";
-          model = "gpt-5.2-codex";
+          model = "gpt-5.4-pro";
         };
       };
       auto_signature_help = true;
