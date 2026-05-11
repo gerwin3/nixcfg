@@ -82,7 +82,7 @@
         # in more places but will also interfere with typing in many subviews.
         context = "(Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu) || EmptyPane || SharedScreen || (ProjectPanel && not_editing)";
         bindings = {
-          "space e" = "workspace::ToggleLeftDock";
+          "space e" = "project_panel::Toggle";
           "space f f" = "file_finder::Toggle";
           "space s g" = "pane::DeploySearch";
           "space s s" = "project_symbols::Toggle";
@@ -97,21 +97,6 @@
           ];
           "space q q" = "workspace::CloseWindow";
           "space q Q" = "zed::Quit";
-        };
-      }
-      # Editor bindings
-      #   These are the non-Vim bindings for the editor.
-      {
-        context = "Editor";
-        bindings = {
-          "ctrl-enter" = "assistant::Assist";
-        };
-      }
-      # Override for ctrl-enter
-      {
-        context = "Editor && vim_mode == full";
-        bindings = {
-          "ctrl-enter" = "assistant::Assist";
         };
       }
       # Editor Vim-like bindings (Normal and Visual mode)
@@ -172,6 +157,9 @@
           provider = "openai";
           model = "gpt-5.4-pro";
         };
+      };
+      project_panel = {
+        dock = "left";
       };
       auto_signature_help = true;
       auto_update = false;
