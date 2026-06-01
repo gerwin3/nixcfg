@@ -5,7 +5,7 @@
     ./common.nix
     ./modules/fingerprint.nix
     ./modules/fwupd.nix
-    ./modules/nvidia.nix
+    ./modules/nvidia-egpu.nix
     ./modules/time.nix
     ./hardware/framework-13-Ryzen.nix
   ];
