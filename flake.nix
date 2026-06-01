@@ -30,7 +30,6 @@
             ./nixos/desktop.nix
             inputs.impermanence.nixosModules.impermanence
             inputs.home-manager.nixosModules.home-manager
-            inputs.catppuccin.nixosModules.catppuccin
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
@@ -56,7 +55,6 @@
             inputs.impermanence.nixosModules.impermanence
             inputs.home-manager.nixosModules.home-manager
             inputs.nixos-hardware.nixosModules.framework-13-7040-amd
-            inputs.catppuccin.nixosModules.catppuccin
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
