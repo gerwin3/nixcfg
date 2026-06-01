@@ -76,5 +76,7 @@
 
   services.logind.settings.Login.HandlelidSwitch = "suspend";
 
+  services.hardware.bolt.enable = true;
+
   swapDevices = [ ];
 }
