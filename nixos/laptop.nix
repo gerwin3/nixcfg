@@ -6,6 +6,7 @@
     ./modules/fingerprint.nix
     ./modules/fwupd.nix
     ./modules/nvidia-egpu.nix
+    ./modules/plymouth.nix
     ./modules/time.nix
     ./hardware/framework-13-Ryzen.nix
   ];
