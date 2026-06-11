@@ -13,7 +13,6 @@
     modules/networking.nix
     modules/nix.nix
     modules/persistence.nix
-    modules/plymouth.nix
     modules/pipewire.nix
     modules/printing.nix
     modules/security.nix
