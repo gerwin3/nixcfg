@@ -5,21 +5,24 @@
     config =
       let
         mod = "Mod4";
+        outputA = "Philips Consumer Electronics Company 27E1N1800A UK02416016738";
+        outputB = "Philips Consumer Electronics Company 27E1N1800A UK02416016744";
+        outputC = "Philips Consumer Electronics Company 27E1N1800A UK02416016773";
       in
       {
         output = {
-          "DP-4" = {
+          "${outputA}" = {
             pos = "0 420";
             scale = "2";
             bg = "${../resources/background-horizontal.png} fill";
           };
-          "DP-5" = {
+          "${outputB}" = {
             pos = "1920 0";
             scale = "2";
             transform = "270";
             bg = "${../resources/background-vertical.png} fill";
           };
-          "DP-6" = {
+          "${outputC}" = {
             pos = "3000 440";
             scale = "2";
             bg = "${../resources/background-horizontal.png} fill";
@@ -33,43 +36,43 @@
         workspaceOutputAssign = [
           {
             workspace = "1";
-            output = "DP-4";
+            output = outputA;
           }
           {
             workspace = "2";
-            output = "DP-4";
+            output = outputA;
           }
           {
             workspace = "3";
-            output = "DP-5";
+            output = outputB;
           }
           {
             workspace = "4";
-            output = "DP-5";
+            output = outputB;
           }
           {
             workspace = "5";
-            output = "DP-5";
+            output = outputB;
           }
           {
             workspace = "6";
-            output = "DP-5";
+            output = outputB;
           }
           {
             workspace = "7";
-            output = "DP-6";
+            output = outputC;
           }
           {
             workspace = "8";
-            output = "DP-6";
+            output = outputC;
           }
           {
             workspace = "9";
-            output = "DP-6";
+            output = outputC;
           }
           {
             workspace = "10";
-            output = "DP-6";
+            output = outputC;
           }
         ];
         # There is no reliable way to have the initial default layout be splitv
