@@ -43,7 +43,7 @@
         # uBlock Origin Lite
         (createChromiumExtension {
           id = "ddkjiahejlhfcafbddmgiahcphecmpfh";
-          sha256 = "sha256:0xnpghvwf3w2h0gi0a5paqdqivczhl4whks1aign2viwfvj2fpbh";
+          sha256 = "sha256:08qxv7abb61yymi120dha8skwmkv3k2jzbz5f1m4vlzlnj1873nl";
           version = "2026.215.1801";
         })
         # Vimium
