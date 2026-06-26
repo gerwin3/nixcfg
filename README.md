@@ -15,7 +15,7 @@ To update the system, use:
 ./apply.sh
 ```
 
-The `update.sh` script ensure we always trail the flake inputs by 30 days.
+The `update.sh` script ensure we always trail the flake inputs by 14 days.
 
 ## Known Issues
 

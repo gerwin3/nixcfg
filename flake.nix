@@ -2,17 +2,17 @@
   description = "gerwin nixcfg";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/e9a7a8adf9710005b0cdf95f81fb07b25c5f777d";
+    nixpkgs.url = "github:NixOS/nixpkgs/baf8c995700c5140135b3e7da60d7b03d98b7fe9";
     flake-utils.url = "github:numtide/flake-utils/11707dc2f618dd54ca8739b309ec4fc024de578b";
     home-manager = {
-      url = "github:nix-community/home-manager/1a95e2efb477959b70b4a14c51035975c0481df6";
+      url = "github:nix-community/home-manager/486595d2cf49cfcd649b58a284fa11ac0e34da22";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixos-hardware.url = "github:NixOS/nixos-hardware/ef4efb84766a166c906bd55759574676bf91267c";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/6358ff76821101c178e3ab4919a62799bfe3652e";
     impermanence = {
       url = "github:nix-community/impermanence/7b1d382faf603b6d264f58627330f9faa5cba149";
     };
-    catppuccin.url = "github:catppuccin/nix/96bf46de3e35bc8e4e1040db43d57f21ae8648e2";
+    catppuccin.url = "github:catppuccin/nix/036c78ea4cd8a42c8546c6316a944fd7d59d4341";
   };
 
   outputs =

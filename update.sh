@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-cutoff=$(date -u -d "30 days ago" "+%Y-%m-%dT%H:%M:%SZ")
+cutoff=$(date -u -d "14 days ago" "+%Y-%m-%dT%H:%M:%SZ")
 fetch_since=$(date -u -d "60 days ago" "+%Y-%m-%dT%H:%M:%SZ")
 
 trailing_rev() {
@@ -15,13 +15,13 @@ trailing_rev() {
 
   # Fetch commits since 60 days ago.
   git -C "$git_dir" fetch -q --filter=blob:none --shallow-since="$fetch_since" origin "$ref" 2>/dev/null || true
-  # Find most recent commit before 30 days ago.
+  # Find most recent commit before 14 days ago.
   commit=$(git -C "$git_dir" rev-list -n1 --before="$cutoff" FETCH_HEAD 2>/dev/null || true)
 
   if [[ -z $commit ]]; then
     # Fetch entire history in case there were no commits in the last 60 days.
     git -C "$git_dir" fetch -q --filter=blob:none --depth=1 origin "$ref"
-    # Find most recent commit before 30 days ago.
+    # Find most recent commit before 14 days ago.
     commit=$(git -C "$git_dir" rev-list -n1 --before="$cutoff" FETCH_HEAD 2>/dev/null || true)
   fi
 
