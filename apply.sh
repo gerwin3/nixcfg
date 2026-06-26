@@ -4,13 +4,11 @@ set -e
 set -o pipefail
 set -x
 
-update=false
-
 if [[ "$1" == "--update" ]]; then
-  update=true
+  ./update.sh
 fi
 
-sudo cp -r flake.nix /etc/nixos
+sudo cp -r flake.nix flake.lock /etc/nixos
 
 sudo rm -rf /etc/nixos/nixos/*
 sudo rm -rf /etc/nixos/home/*
@@ -24,12 +22,6 @@ fi
 
 if [[ -d "../nixcfg-priv/home" ]]; then
   sudo cp -r ../nixcfg-priv/home /etc/nixos
-fi
-
-if [[ "$update" = true ]]; then
-  cd /etc/nixos
-  sudo nix flake update
-  cd -
 fi
 
 sudo nixos-rebuild switch

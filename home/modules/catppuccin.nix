@@ -2,9 +2,6 @@
 
 {
   catppuccin = {
-    enable = true;
-    autoEnable = false;
-
     flavor = "mocha";
 
     waybar.enable = true;

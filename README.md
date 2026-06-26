@@ -5,16 +5,17 @@
 I keep my nixcfg repository separate from `/etc/nixos`. After making changes, the `apply.sh` script copies the config into `/etc/nixos` and rebuilds the system.
 
 ```sh
-./apply
+./apply.sh
 ```
 
 To update the system, use:
 
 ```sh
-./apply --update
+./update.sh
+./apply.sh
 ```
 
-This will apply the configuration, as well as updating the lock file.
+The `update.sh` script ensure we always trail the flake inputs by 30 days.
 
 ## Known Issues
 
