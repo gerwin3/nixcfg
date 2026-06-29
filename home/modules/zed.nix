@@ -5,18 +5,7 @@
     enable = true;
     extensions = [
       "catppuccin"
-      "dockerfile"
-      "elixir"
-      "git-firefly"
-      "just"
-      "make"
-      "marksman"
-      "nix"
-      "rainbow-csv"
-      "rust"
       "tokyo-night"
-      "toml"
-      "zig"
     ];
     extraPackages = with pkgs; [
       marksman
