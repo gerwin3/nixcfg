@@ -5,6 +5,7 @@
     enable = true;
     extensions = [
       "catppuccin"
+      "nix"
       "tokyo-night"
     ];
     extraPackages = with pkgs; [
@@ -150,6 +151,12 @@
       project_panel = {
         dock = "left";
       };
+      auto_install_extensions = {
+        html = false;
+      };
+      auto_update_extensions = {
+        html = false;
+      };
       auto_signature_help = true;
       auto_update = false;
       buffer_font_family = "Berkeley Mono";
@@ -157,6 +164,7 @@
       buffer_line_height = {
         custom = 1.4;
       };
+      granted_extension_capabilities = [];
       gutter = {
         line_numbers = true;
       };
