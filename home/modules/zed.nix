@@ -7,6 +7,7 @@
       "catppuccin"
       "nix"
       "tokyo-night"
+      "zig"
     ];
     extraPackages = with pkgs; [
       marksman
@@ -164,7 +165,7 @@
       buffer_line_height = {
         custom = 1.4;
       };
-      granted_extension_capabilities = [];
+      granted_extension_capabilities = [ ];
       gutter = {
         line_numbers = true;
       };
