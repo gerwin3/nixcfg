@@ -149,6 +149,9 @@
           model = "gpt-5.4-pro";
         };
       };
+      session = {
+        trust_all_worktrees = false;
+      };
       project_panel = {
         dock = "left";
       };
