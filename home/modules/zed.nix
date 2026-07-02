@@ -22,7 +22,6 @@ let
       --die-with-parent
       --disable-userns
       --unshare-cgroup-try
-      --unshare-ipc
       --unshare-net
       --unshare-user
       --unshare-uts
