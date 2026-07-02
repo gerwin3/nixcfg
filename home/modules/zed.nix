@@ -63,6 +63,9 @@ let
       --ro-bind-try /run/opengl-driver /run/opengl-driver
       --ro-bind-try /run/opengl-driver-32 /run/opengl-driver-32
       --ro-bind-try /run/udev /run/udev
+      --ro-bind-try /sys/class/drm /sys/class/drm
+      --ro-bind-try /sys/dev/char /sys/dev/char
+      --ro-bind-try /sys/devices/pci0000:00 /sys/devices/pci0000:00
       --setenv HOME "$HOME"
       --setenv WAYLAND_DISPLAY "$WAYLAND_DISPLAY"
       --setenv XDG_RUNTIME_DIR "$XDG_RUNTIME_DIR"
