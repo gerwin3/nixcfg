@@ -33,6 +33,7 @@ let
       --dir "$HOME/.config"
       --dir "$HOME/.local"
       --dir "$HOME/.local/share"
+      --dir "$HOME/.local/share/zed"
       --dir "$HOME/.local/state"
       --dir "$XDG_RUNTIME_DIR"
       --dir /etc
@@ -42,7 +43,19 @@ let
       --proc /proc
       --bind-try "$HOME/.cache/fontconfig" "$HOME/.cache/fontconfig"
       --bind-try "$HOME/.cache/zed" "$HOME/.cache/zed"
-      --bind-try "$HOME/.local/share/zed" "$HOME/.local/share/zed"
+      --bind-try "$HOME/.local/share/zed/agent-navigation-history.json" "$HOME/.local/share/zed/agent-navigation-history.json"
+      --bind-try "$HOME/.local/share/zed/conversations" "$HOME/.local/share/zed/conversations"
+      --bind-try "$HOME/.local/share/zed/db" "$HOME/.local/share/zed/db"
+      --bind-try "$HOME/.local/share/zed/debug_adapters" "$HOME/.local/share/zed/debug_adapters"
+      --bind-try "$HOME/.local/share/zed/extensions" "$HOME/.local/share/zed/extensions"
+      --bind-try "$HOME/.local/share/zed/external_agents" "$HOME/.local/share/zed/external_agents"
+      --bind-try "$HOME/.local/share/zed/hang_traces" "$HOME/.local/share/zed/hang_traces"
+      --bind-try "$HOME/.local/share/zed/languages" "$HOME/.local/share/zed/languages"
+      --bind-try "$HOME/.local/share/zed/logs" "$HOME/.local/share/zed/logs"
+      --bind-try "$HOME/.local/share/zed/node" "$HOME/.local/share/zed/node"
+      --bind-try "$HOME/.local/share/zed/prettier" "$HOME/.local/share/zed/prettier"
+      --bind-try "$HOME/.local/share/zed/prompts" "$HOME/.local/share/zed/prompts"
+      --bind-try "$HOME/.local/share/zed/threads" "$HOME/.local/share/zed/threads"
       --bind-try "$HOME/.local/state/zed" "$HOME/.local/state/zed"
       --bind-try "$XDG_RUNTIME_DIR/doc" "$XDG_RUNTIME_DIR/doc"
       --ro-bind /nix/store /nix/store
