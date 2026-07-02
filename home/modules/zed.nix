@@ -1,8 +1,94 @@
-{ pkgs, ... }:
+{
+  lib,
+  pkgs,
+  ...
+}:
 
+let
+  zedPackage = pkgs.zed-editor;
+
+  zedBwrapLauncher = pkgs.writeShellScript "zed-bwrap-launcher" ''
+    set -euo pipefail
+
+    : "''${HOME:?HOME must be set}"
+    : "''${XDG_RUNTIME_DIR:?XDG_RUNTIME_DIR must be set}"
+    : "''${WAYLAND_DISPLAY:?WAYLAND_DISPLAY must be set}"
+
+    cwd="$(pwd -P)"
+    wayland_socket="''${XDG_RUNTIME_DIR}/''${WAYLAND_DISPLAY}"
+
+    bwrap_args=(
+      --new-session
+      --die-with-parent
+      --disable-userns
+      --unshare-cgroup-try
+      --unshare-ipc
+      --unshare-net
+      --unshare-user
+      --unshare-uts
+      --tmpfs "$HOME"
+      --tmpfs /tmp
+      --bind "$cwd" "$cwd"
+      --chdir "$cwd"
+      --dir "$HOME/.cache"
+      --dir "$HOME/.config"
+      --dir "$HOME/.local"
+      --dir "$HOME/.local/share"
+      --dir "$HOME/.local/state"
+      --dir "$XDG_RUNTIME_DIR"
+      --dir /etc
+      --dev /dev
+      --dev-bind-try /dev/dri /dev/dri
+      --proc /proc
+      --bind-try "$HOME/.cache/fontconfig" "$HOME/.cache/fontconfig"
+      --bind-try "$HOME/.cache/zed" "$HOME/.cache/zed"
+      --bind-try "$HOME/.local/share/zed" "$HOME/.local/share/zed"
+      --bind-try "$HOME/.local/state/zed" "$HOME/.local/state/zed"
+      --bind-try "$XDG_RUNTIME_DIR/doc" "$XDG_RUNTIME_DIR/doc"
+      --ro-bind /nix/store /nix/store
+      --ro-bind /run/current-system /run/current-system
+      --ro-bind "$wayland_socket" "$wayland_socket"
+      --ro-bind-try "$HOME/.config/fontconfig" "$HOME/.config/fontconfig"
+      --ro-bind-try "$HOME/.config/zed" "$HOME/.config/zed"
+      --ro-bind-try "$HOME/.local/share/fonts" "$HOME/.local/share/fonts"
+      --ro-bind-try "$HOME/.nix-profile" "$HOME/.nix-profile"
+      --ro-bind-try "$XDG_RUNTIME_DIR/bus" "$XDG_RUNTIME_DIR/bus"
+      --ro-bind-try /etc/fonts /etc/fonts
+      --ro-bind-try /etc/group /etc/group
+      --ro-bind-try /etc/hosts /etc/hosts
+      --ro-bind-try /etc/localtime /etc/localtime
+      --ro-bind-try /etc/nsswitch.conf /etc/nsswitch.conf
+      --ro-bind-try /etc/passwd /etc/passwd
+      --ro-bind-try /run/dbus /run/dbus
+      --ro-bind-try /run/opengl-driver /run/opengl-driver
+      --ro-bind-try /run/opengl-driver-32 /run/opengl-driver-32
+      --ro-bind-try /run/udev /run/udev
+      --setenv HOME "$HOME"
+      --setenv WAYLAND_DISPLAY "$WAYLAND_DISPLAY"
+      --setenv XDG_RUNTIME_DIR "$XDG_RUNTIME_DIR"
+    )
+
+    exec ${pkgs.bubblewrap}/bin/bwrap "''${bwrap_args[@]}" -- ${zedPackage}/bin/zeditor "$@"
+  '';
+
+  zedBwrapPackage = pkgs.symlinkJoin {
+    name = "zed-editor-bwrap-${zedPackage.version}";
+    paths = [ zedPackage ];
+    preferLocalBuild = true;
+    nativeBuildInputs = [ pkgs.makeWrapper ];
+    meta = zedPackage.meta // {
+      mainProgram = "zeditor";
+    };
+    postBuild = ''
+      rm "$out/bin/zeditor"
+      makeWrapper ${pkgs.bash}/bin/bash "$out/bin/zeditor" --add-flags ${lib.escapeShellArg zedBwrapLauncher}
+    '';
+  };
+in
 {
   programs.zed-editor = {
     enable = true;
+    package = zedBwrapPackage;
     extensions = [
       "catppuccin"
       "nix"
