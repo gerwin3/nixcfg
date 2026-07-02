@@ -3,7 +3,7 @@
 set -euo pipefail
 
 cutoff=$(date -u -d "14 days ago" "+%Y-%m-%dT%H:%M:%SZ")
-fetch_since=$(date -u -d "60 days ago" "+%Y-%m-%dT%H:%M:%SZ")
+fetch_since=$(date -u -d "120 days ago" "+%Y-%m-%dT%H:%M:%SZ")
 
 trailing_rev() {
   repo=$1
@@ -35,11 +35,11 @@ trailing_rev() {
   echo "$commit"
 }
 
-sed -i -E "s#github:NixOS/nixpkgs(/[^\"?]*)?#github:NixOS/nixpkgs/$(trailing_rev NixOS/nixpkgs nixos-unstable)#" flake.nix
-sed -i -E "s#github:numtide/flake-utils(/[^\"?]*)?#github:numtide/flake-utils/$(trailing_rev numtide/flake-utils)#" flake.nix
-sed -i -E "s#github:nix-community/home-manager(/[^\"?]*)?#github:nix-community/home-manager/$(trailing_rev nix-community/home-manager)#" flake.nix
-sed -i -E "s#github:NixOS/nixos-hardware(/[^\"?]*)?#github:NixOS/nixos-hardware/$(trailing_rev NixOS/nixos-hardware)#" flake.nix
-sed -i -E "s#github:nix-community/impermanence(/[^\"?]*)?#github:nix-community/impermanence/$(trailing_rev nix-community/impermanence)#" flake.nix
-sed -i -E "s#github:catppuccin/nix(/[^\"?]*)?#github:catppuccin/nix/$(trailing_rev catppuccin/nix)#" flake.nix
+while read -r url; do
+  repo=${url#github:}
+  [[ $repo == NixOS/nixpkgs ]] && ref=nixos-unstable || ref=
+  rev=$(trailing_rev "$repo" "$ref")
+  sed -i -E "s#${url}(/[^\"?]*)?#${url}/${rev}#" flake.nix
+done < <(rg -o 'github:[^"/?]+/[^"/?]+' flake.nix | sort -u)
 
 nix flake update
