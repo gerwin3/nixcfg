@@ -22,7 +22,7 @@ let
       --die-with-parent
       --disable-userns
       --unshare-cgroup-try
-      --unshare-net
+      --unshare-ipc
       --unshare-user
       --unshare-uts
       --tmpfs "$HOME"
@@ -36,6 +36,7 @@ let
       --dir "$HOME/.local/state"
       --dir "$XDG_RUNTIME_DIR"
       --dir /etc
+      --dir /etc/static
       --dev /dev
       --dev-bind-try /dev/dri /dev/dri
       --proc /proc
@@ -53,11 +54,20 @@ let
       --ro-bind-try "$HOME/.nix-profile" "$HOME/.nix-profile"
       --ro-bind-try "$XDG_RUNTIME_DIR/bus" "$XDG_RUNTIME_DIR/bus"
       --ro-bind-try /etc/fonts /etc/fonts
+      --ro-bind-try /etc/gai.conf /etc/gai.conf
       --ro-bind-try /etc/group /etc/group
+      --ro-bind-try /etc/host.conf /etc/host.conf
       --ro-bind-try /etc/hosts /etc/hosts
       --ro-bind-try /etc/localtime /etc/localtime
       --ro-bind-try /etc/nsswitch.conf /etc/nsswitch.conf
       --ro-bind-try /etc/passwd /etc/passwd
+      --ro-bind-try /etc/protocols /etc/protocols
+      --ro-bind-try /etc/resolv.conf /etc/resolv.conf
+      --ro-bind-try /etc/services /etc/services
+      --ro-bind-try /etc/ssl /etc/ssl
+      --ro-bind-try /etc/pki /etc/pki
+      --ro-bind-try /etc/static/pki /etc/static/pki
+      --ro-bind-try /etc/static/ssl /etc/static/ssl
       --ro-bind-try /run/dbus /run/dbus
       --ro-bind-try /run/opengl-driver /run/opengl-driver
       --ro-bind-try /run/opengl-driver-32 /run/opengl-driver-32
@@ -66,6 +76,10 @@ let
       --ro-bind-try /sys/dev/char /sys/dev/char
       --ro-bind-try /sys/devices/pci0000:00 /sys/devices/pci0000:00
       --setenv HOME "$HOME"
+      --setenv CURL_CA_BUNDLE /etc/ssl/certs/ca-bundle.crt
+      --setenv GIT_SSL_CAINFO /etc/ssl/certs/ca-bundle.crt
+      --setenv SSL_CERT_FILE /etc/ssl/certs/ca-bundle.crt
+      --setenv TMPDIR /tmp
       --setenv WAYLAND_DISPLAY "$WAYLAND_DISPLAY"
       --setenv XDG_RUNTIME_DIR "$XDG_RUNTIME_DIR"
     )
