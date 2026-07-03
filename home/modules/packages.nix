@@ -65,6 +65,9 @@
     # desktop environment
     sway-launcher-desktop
 
+    # remote desktop
+    remmina
+
     # assistants
     codex
     code-cursor
