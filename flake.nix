@@ -2,7 +2,7 @@
   description = "gerwin nixcfg";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/d26b687604ec2d2fa408f534a79d9e70bf37c105";
+    nixpkgs.url = "github:NixOS/nixpkgs/676bb8b57661ab9b36ca576e0910eff919a6a180";
     flake-utils.url = "github:numtide/flake-utils/11707dc2f618dd54ca8739b309ec4fc024de578b";
     home-manager = {
       url = "github:nix-community/home-manager/c53d643b3737e2fcd04e6cb3b3580ef50b2087a0";
