@@ -4,7 +4,7 @@
   programs.fzf = {
     enable = true;
 
-    historyWidgetOptions = [
+    historyWidget.options = [
       "--layout reverse"
     ];
   };
