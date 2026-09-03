@@ -8,9 +8,7 @@
     initLua = ''
       vim.opt.number = true
       vim.opt.cursorline = true
-      vim.opt.cursorlineopt = "number"
       vim.opt.scrolloff = 10
-      vim.opt.splitright = true
       vim.opt.tabstop = 4
       vim.opt.shiftwidth = 4
       vim.opt.softtabstop = 4
