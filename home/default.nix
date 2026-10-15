@@ -22,6 +22,7 @@
     modules/zed.nix
   ]
   ++ (lib.optional (variant == "desktop") modules/sway.desktop.nix)
+  ++ (lib.optional (variant == "desktop-home") modules/sway.desktop-home.nix)
   ++ (lib.optional (variant == "laptop") modules/sway.laptop.nix);
 
   home = {
