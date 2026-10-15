@@ -7,10 +7,29 @@
 
 {
   boot = {
+    # This machine already had Windows installed. Windows creates just a tiny
+    # /boot partition of 100MB. That is not enough for NixOS, since it wants to
+    # store kernels, generations, etc. on there. To work around this, I added
+    # an XBOOTLDR partition of 4GB mounted at /boot which will store kernels
+    # etc. and then use the Windows boot partition for EFI. At first I tried to
+    # make this work with systemd-boot. But in the end I only got it to work
+    # with GRUB (which does not even require the partition to be typed XBOOTLDR
+    # apparently). As I understand it, GRUB always uses /boot for data, and
+    # since we mounted the 4GB larger partition on /boot, that should work. And
+    # then finally we instruct GRUB to actually install to /efi manually.
+    loader.efi.canTouchEfiVariables = true;
+    loader.efi.efiSysMountPoint = "/efi";
+    loader.grub = {
+        enable = true;
+        device = "nodev";
+        efiSupport = true;
+        useOSProber = true;
+    };
+
     extraModulePackages = [ ];
     kernelModules = [ "kvm-amd" ];
     kernelPackages = pkgs.linuxPackages_latest;
-    loader.efi.canTouchEfiVariables = true;
+
     initrd = {
       availableKernelModules = [
         "nvme"
@@ -21,7 +40,7 @@
         "sd_mod"
       ];
       kernelModules = [ ];
-      luks.devices."root".device = "/dev/disk/by-uuid/f6567372-7007-4bed-9961-d6ddae3738c1";
+      luks.devices."root".device = "/dev/disk/by-uuid/90455870-a43b-4505-86cb-542e59235813";
     };
   };
 
@@ -32,33 +51,34 @@
     fsType = "tmpfs";
     options = [
       "defaults"
-      "size=25G"
+      "size=64G"
       "mode=755"
     ];
     neededForBoot = true;
   };
 
   fileSystems."/nix" = {
-    device = "/dev/disk/by-uuid/049e8a7b-0508-42f6-9efa-8ed2e935b7cc";
+    device = "/dev/disk/by-uuid/78176526-7172-4199-a08c-13066a10c05d";
     fsType = "btrfs";
     options = [ "subvol=nix" ];
     neededForBoot = true;
   };
 
   fileSystems."/persist" = {
-    device = "/dev/disk/by-uuid/049e8a7b-0508-42f6-9efa-8ed2e935b7cc";
+    device = "/dev/disk/by-uuid/78176526-7172-4199-a08c-13066a10c05d";
     fsType = "btrfs";
     options = [ "subvol=persist" ];
     neededForBoot = true;
   };
 
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/2C9D-AE2E";
+  fileSystems."/efi" = {
+    device = "/dev/disk/by-uuid/8CBE-F1FB";
     fsType = "vfat";
-    options = [
-      "fmask=0022"
-      "dmask=0022"
-    ];
+  };
+
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/6341-B56A";
+    fsType = "vfat";
   };
 
   networking.useDHCP = lib.mkDefault true;

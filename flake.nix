@@ -44,6 +44,30 @@
           ];
         };
 
+        "gerwin-desktop-home" = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit inputs;
+          };
+          modules = [
+            ./nixos/desktop-home.nix
+            inputs.impermanence.nixosModules.impermanence
+            inputs.home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.gerwin.imports = [
+                ./home
+                inputs.catppuccin.homeModules.catppuccin
+              ];
+              home-manager.extraSpecialArgs = {
+                inherit inputs;
+                variant = "desktop-home";
+              };
+            }
+          ];
+        };
+
         "gerwin-laptop" = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = {

@@ -10,6 +10,7 @@
     extraModulePackages = [ ];
     kernelModules = [ "kvm-amd" ];
     kernelPackages = pkgs.linuxPackages_latest;
+    loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
     initrd = {
       availableKernelModules = [
