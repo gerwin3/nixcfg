@@ -13,10 +13,10 @@
     # XBOOTLDR partition of 4GB mounted at /boot which will store kernels etc.
     # and then use the Windows boot partition for EFI.
     # See: https://wiki.nixos.org/wiki/Dual_Booting_NixOS_and_Windows
-    boot.loader.systemd-boot.enable = true;
-    boot.loader.systemd-boot.xbootldrMountPoint = "/boot";
-    boot.loader.efi.canTouchEfiVariables = true;
-    boot.loader.efi.efiSysMountPoint = "/efi";
+    loader.systemd-boot.enable = true;
+    loader.systemd-boot.xbootldrMountPoint = "/boot";
+    loader.efi.canTouchEfiVariables = true;
+    loader.efi.efiSysMountPoint = "/efi";
 
     extraModulePackages = [ ];
     kernelModules = [ "kvm-amd" ];
