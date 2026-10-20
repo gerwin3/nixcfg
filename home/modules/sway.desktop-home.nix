@@ -4,8 +4,8 @@
   wayland.windowManager.sway = {
     config =
       let
-        outputA = "BNQ BenQ GW2780 L9K0136001Q";
-        outputB = "Philips Consumer Electronics Company PHL 273V7 UK02206019245";
+        outputA = "Philips Consumer Electronics Company PHL 273V7 UK02206019245";
+        outputB = "BNQ BenQ GW2780 L9K0136001Q";
       in
       {
         output = {
