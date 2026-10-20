@@ -9,22 +9,14 @@
   boot = {
     # This machine already had Windows installed. Windows creates just a tiny
     # /boot partition of 100MB. That is not enough for NixOS, since it wants to
-    # store kernels, generations, etc. on there. To work around this, I added
-    # an XBOOTLDR partition of 4GB mounted at /boot which will store kernels
-    # etc. and then use the Windows boot partition for EFI. At first I tried to
-    # make this work with systemd-boot. But in the end I only got it to work
-    # with GRUB (which does not even require the partition to be typed XBOOTLDR
-    # apparently). As I understand it, GRUB always uses /boot for data, and
-    # since we mounted the 4GB larger partition on /boot, that should work. And
-    # then finally we instruct GRUB to actually install to /efi manually.
-    loader.efi.canTouchEfiVariables = true;
-    loader.efi.efiSysMountPoint = "/efi";
-    loader.grub = {
-        enable = true;
-        device = "nodev";
-        efiSupport = true;
-        useOSProber = true;
-    };
+    # store kernels, generations, etc. on there. To work around this, I added an
+    # XBOOTLDR partition of 4GB mounted at /boot which will store kernels etc.
+    # and then use the Windows boot partition for EFI.
+    # See: https://wiki.nixos.org/wiki/Dual_Booting_NixOS_and_Windows
+    boot.loader.systemd-boot.enable = true;
+    boot.loader.systemd-boot.xbootldrMountPoint = "/boot";
+    boot.loader.efi.canTouchEfiVariables = true;
+    boot.loader.efi.efiSysMountPoint = "/efi";
 
     extraModulePackages = [ ];
     kernelModules = [ "kvm-amd" ];

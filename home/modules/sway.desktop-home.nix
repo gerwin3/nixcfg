@@ -20,7 +20,7 @@
         };
         seat = {
           "*" = {
-            xcursor_theme = "Adwaita 18";
+            xcursor_theme = "Adwaita 32";
           };
         };
         workspaceOutputAssign = [
