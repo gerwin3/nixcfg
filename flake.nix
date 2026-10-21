@@ -2,10 +2,10 @@
   description = "gerwin nixcfg";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/85d9ad302c885bb3bd82d7d53f741462c7b48490";
+    nixpkgs.url = "github:NixOS/nixpkgs/02c087f3fe673c9e317f206a627cb6b910336dbe";
     flake-utils.url = "github:numtide/flake-utils/11707dc2f618dd54ca8739b309ec4fc024de578b";
     home-manager = {
-      url = "github:nix-community/home-manager/aa23f720d022187228bc264f759aef6b80233bcf";
+      url = "github:nix-community/home-manager/fae6e9e42c3b762ab47635cddcfaf6f52374a61b";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/31cc5f4d9b9ba601071e8b8504601b9b176e2756";

@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
+set -euox pipefail
 
 cutoff=$(date -u -d "14 days ago" "+%Y-%m-%dT%H:%M:%SZ")
-fetch_since=$(date -u -d "120 days ago" "+%Y-%m-%dT%H:%M:%SZ")
+fetch_since=$(date -u -d "100 days ago" "+%Y-%m-%dT%H:%M:%SZ")
 
 trailing_rev() {
   repo=$1
