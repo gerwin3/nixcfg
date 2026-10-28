@@ -157,7 +157,6 @@
             };
             background = background;
           };
-        startup = lib.optionals (variant == "desktop") [ { command = "preheat"; } ];
       };
 
     extraConfig = ''
