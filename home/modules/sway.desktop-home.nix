@@ -14,7 +14,7 @@
             bg = "${../resources/background-horizontal.png} fill";
           };
           "${outputB}" = {
-            pos = "1920 140";
+            pos = "1920 240";
             bg = "${../resources/background-horizontal.png} fill";
           };
         };
