@@ -36,6 +36,7 @@
       PROMPT_COMMAND="''${PROMPT_COMMAND:+$PROMPT_COMMAND; }osc7_cwd"
 
       # Custom prompt
+      bold="\[$(tput bold)\]"
       color1="\[$(tput setaf 183)\]"
       color2="\[$(tput setaf 225)\]"
       color3="\[$(tput setaf 147)\]"
@@ -48,7 +49,7 @@
             else
               prompt_symbol=">"
             fi
-            export PS1="''${color1}\t ''${color2}\h''${reset}:''${color3}\W''${gray}''${reset} ''${prompt_symbol} "
+            export PS1="''${bold}''${color1}\t ''${color2}\h''${reset}''${bold}:''${color3}\W''${gray}''${reset}''${bold} ''${prompt_symbol}''${reset} "
         fi
       }
       PROMPT_COMMAND="''${PROMPT_COMMAND:+$PROMPT_COMMAND; }__prompt_update"
